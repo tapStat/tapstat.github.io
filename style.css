@@ -1,0 +1,16 @@
+@font-face { font-family: Manrope; src: url(manrope.ttf); font-weight: 200 800; }
+:root { --bg: #F6F4EF; --ink: #161A17; --muted: #5B635D; --brand: #0F5132; --mint: #D5F5E3; --line: #DCDFDA; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 Manrope, system-ui, sans-serif; }
+main { max-width: 760px; margin: 0 auto; padding: 32px 20px 64px; }
+header { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
+header img { width: 48px; height: 48px; border-radius: 14px; }
+header a { color: var(--ink); text-decoration: none; font-weight: 800; font-size: 22px; }
+h1 { font-size: 40px; line-height: 1.15; letter-spacing: -0.5px; margin: 0 0 12px; }
+h2 { font-size: 22px; margin: 36px 0 8px; }
+a { color: var(--brand); }
+.lead { font-size: 20px; color: var(--muted); }
+.card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 20px 24px; margin: 16px 0; }
+.note { background: var(--mint); border-radius: 16px; padding: 16px 20px; }
+footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+footer a { margin-right: 16px; }
