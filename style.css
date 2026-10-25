@@ -232,7 +232,7 @@ td.p { color: var(--down); }
 
 /* Footer */
 .foot { border-top: 1px solid var(--line); padding: 56px 0 40px; margin-top: 40px; font-size: 15px; }
-.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; gap: 32px; }
 .foot-brand p { color: var(--muted); margin-top: 12px; max-width: 26em; }
 .foot h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 12px; }
 .foot-grid a:not(.brand) { display: block; color: var(--ink); text-decoration: none; padding: 4px 0; }

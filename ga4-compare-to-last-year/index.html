@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compare with the same day last year in GA4 (same weekday) · tapStat</title>
+<meta name="description" content="GA4 removed its "previous year, match day of week" comparison. Here is how to compare a day or week with the same weekday last year in GA4 anyway, and how tapStat does it in one tap.">
+<link rel="canonical" href="https://tapstat.app/ga4-compare-to-last-year/">
+<link rel="icon" href="../logo.png">
+<link rel="apple-touch-icon" href="../logo.png">
+<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#0F5132">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tapStat">
+<meta property="og:title" content="Compare today with the same weekday last year in GA4">
+<meta property="og:description" content="GA4 removed its "previous year, match day of week" comparison. Here is how to compare a day or week with the same weekday last year in GA4 anyway, and how tapStat does it in one tap.">
+<meta property="og:url" content="https://tapstat.app/ga4-compare-to-last-year/">
+<meta property="og:image" content="https://tapstat.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="YkdE_ewxdPoCmlzKN3Q8Ksq0IS82m9GagVURQ94Gfw0">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSC5XK63');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E0RFVS9KZG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E0RFVS9KZG');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can GA4 compare the same day of the week last year?", "acceptedAnswer": {"@type": "Answer", "text": "Not with a preset any more. Google removed \"Previous year (match day of week)\". Use a custom comparison range 364 days earlier, which keeps the weekday."}}, {"@type": "Question", "name": "Why 364 days instead of 365?", "acceptedAnswer": {"@type": "Answer", "text": "364 days is exactly 52 weeks, so the comparison lands on the same weekday. 365 days shifts it by one weekday, or two after a leap day."}}, {"@type": "Question", "name": "Can I compare dates in the Google Analytics app?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, the app has a compare option, but custom ranges take several taps and aren't remembered. tapStat keeps your chosen comparison for every number."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Compare with the same weekday last year in GA4", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}, "image": "https://tapstat.app/img/og.png", "mainEntityOfPage": "https://tapstat.app/ga4-compare-to-last-year/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "tapStat", "item": "https://tapstat.app/"}, {"@type": "ListItem", "position": 2, "name": "Compare with last year in GA4", "item": "https://tapstat.app/ga4-compare-to-last-year/"}]}</script>
+</head>
+<body class="">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="../"><img src="../logo.png" alt="" width="36" height="36"><span>tapStat</span></a>
+    <nav class="nav" aria-label="Main"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/">Guides</a></nav>
+    <a class="btn btn-sm" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a>
+    <details class="menu"><summary aria-label="Menu"><span></span><span></span><span></span></summary>
+      <nav aria-label="Mobile"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/">Guides</a><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></nav></details>
+  </div>
+</header>
+<main id="main">
+<article class="prose">
+  <p class="crumbs"><a href="../">tapStat</a> · Comparisons</p>
+  <h1>Compare with the same weekday last year in GA4</h1>
+  <p class="meta">Updated 25 October 2026 · 5 min read</p>
+
+  <p class="lead">Google has removed GA4's "Previous year (match day of week)" comparison. The "Previous year" option that remains compares calendar dates, so this Saturday is compared with whatever weekday the same date fell on last year. For a store, that's often the wrong comparison. Here is how to get a fair one.</p>
+
+  <h2>Why the weekday matters</h2>
+  <p>Stores sell differently on each day of the week. If 14 November is a Saturday this year and was a Friday last year, the calendar comparison mixes a weekend day with a weekday. Around holidays it's worse: Black Friday moves by a day or more every year, so a calendar comparison can put this year's Black Friday next to an ordinary Thursday last year.</p>
+
+  <h2>How to do it in GA4</h2>
+  <ol class="steps">
+    <li><strong>Find last year's matching day.</strong> Go back 364 days, which is exactly 52 weeks, so the weekday is the same. For 27 November 2026, that's 28 November 2025.</li>
+    <li><strong>Open your report</strong>, for example <strong>Reports › Monetization › Ecommerce purchases</strong>, and set the date range to this year's day or week.</li>
+    <li><strong>Click Compare, choose Custom</strong> and enter last year's matching range.</li>
+    <li><strong>Apply.</strong> Every metric in the report now shows the change against the same weekday last year.</li>
+  </ol>
+  <p>The Google Analytics app supports comparisons too, but entering a custom range on a phone takes a few taps every time, and it doesn't remember your choice for the next day.</p>
+  <div class="note">For comparisons with last week or last month, GA4 still offers <strong>Previous period (match day of week)</strong>. Use it instead of plain Previous period whenever you compare whole weeks.</div>
+
+  <h2>How tapStat does it</h2>
+  <figure><div class="phone"><img src="../img/dashboard.webp" alt="tapStat dashboard comparing with the same weekday" width="480" height="1000" loading="lazy"></div><figcaption>Every number in tapStat compares like with like.</figcaption></figure>
+  <ul>
+    <li><strong>Free:</strong> today, yesterday and the last 7 days are always compared with the same weekday last week. Today is compared up to the same hour.</li>
+    <li><strong>Pro:</strong> pick any comparison: previous period, the same weekday last year, or last Black Friday. The choice applies to every number, and tapStat remembers it.</li>
+    <li><strong>Pro:</strong> tap a number to see <a href="../why-did-my-sales-drop/">why it changed</a> against that comparison.</li>
+  </ul>
+
+  <h2>Which comparison to use when</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Question</th><th>Compare with</th></tr></thead>
+      <tbody>
+        <tr><td>Is today normal?</td><td>Same weekday last week, up to the same hour</td></tr>
+        <tr><td>Is this week normal?</td><td>Previous 7 days, matched by weekday</td></tr>
+        <tr><td>Are we growing?</td><td>Same weekdays last year</td></tr>
+        <tr><td>How did our sale do?</td><td>Last year's sale on the matching day, such as last Black Friday</td></tr>
+        <tr><td>Is the month on track?</td><td>Month to date against a target and last year's month</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Questions</h2>
+  <div class="faq">
+    <details><summary>Can GA4 compare the same day of the week last year?</summary><p>Not with a preset any more. Google removed "Previous year (match day of week)". Use a custom comparison range 364 days earlier, which keeps the weekday.</p></details>
+    <details><summary>Why 364 days instead of 365?</summary><p>364 days is exactly 52 weeks, so the comparison lands on the same weekday. 365 days shifts it by one weekday, or two after a leap day.</p></details>
+    <details><summary>Can I compare dates in the Google Analytics app?</summary><p>Yes, the app has a compare option, but custom ranges take several taps and aren't remembered. tapStat keeps your chosen comparison for every number.</p></details>
+  </div>
+
+  <div class="cta" style="margin-top:40px">
+    <h2>Compare like with like, every day</h2>
+    <p>Same-weekday comparisons are free. Any comparison is in Pro, with 14 days free.</p>
+    <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access%20(compare%20last%20year)">Get early access</a></div>
+  </div>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+        <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
+        <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
+      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+    </div>
+    <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
+  </div>
+</footer>
+</body>
+</html>

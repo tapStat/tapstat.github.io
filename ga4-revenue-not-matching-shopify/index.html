@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why GA4 revenue doesn't match Shopify (and how big the gap should be) · tapStat</title>
+<meta name="description" content="GA4 almost never matches Shopify, WooCommerce or your store's back office. Here are the 9 reasons, what gap is normal, and how to tell a normal gap from broken tracking.">
+<link rel="canonical" href="https://tapstat.app/ga4-revenue-not-matching-shopify/">
+<link rel="icon" href="../logo.png">
+<link rel="apple-touch-icon" href="../logo.png">
+<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#0F5132">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tapStat">
+<meta property="og:title" content="Why GA4 revenue doesn't match Shopify">
+<meta property="og:description" content="GA4 almost never matches Shopify, WooCommerce or your store's back office. Here are the 9 reasons, what gap is normal, and how to tell a normal gap from broken tracking.">
+<meta property="og:url" content="https://tapstat.app/ga4-revenue-not-matching-shopify/">
+<meta property="og:image" content="https://tapstat.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="YkdE_ewxdPoCmlzKN3Q8Ksq0IS82m9GagVURQ94Gfw0">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSC5XK63');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E0RFVS9KZG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E0RFVS9KZG');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is GA4 revenue lower than Shopify?", "acceptedAnswer": {"@type": "Answer", "text": "Mostly because of cookie consent, ad blockers, customers who don't return to the thank-you page after paying, and orders without a website visit. A steady gap of up to around 15% is common."}}, {"@type": "Question", "name": "Why is GA4 revenue higher than Shopify?", "acceptedAnswer": {"@type": "Answer", "text": "Usually duplicate purchase events, for example from two integrations sending the same order, or a thank-you page that fires again on reload. Check that each transaction ID appears once."}}, {"@type": "Question", "name": "Which number should I trust?", "acceptedAnswer": {"@type": "Answer", "text": "Your store's back office for money, GA4 for where buyers came from and how they behaved. Keep the gap steady and both stay useful."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Why GA4 revenue doesn't match Shopify", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}, "image": "https://tapstat.app/img/og.png", "mainEntityOfPage": "https://tapstat.app/ga4-revenue-not-matching-shopify/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "tapStat", "item": "https://tapstat.app/"}, {"@type": "ListItem", "position": 2, "name": "GA4 revenue doesn't match Shopify", "item": "https://tapstat.app/ga4-revenue-not-matching-shopify/"}]}</script>
+</head>
+<body class="">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="../"><img src="../logo.png" alt="" width="36" height="36"><span>tapStat</span></a>
+    <nav class="nav" aria-label="Main"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/">Guides</a></nav>
+    <a class="btn btn-sm" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a>
+    <details class="menu"><summary aria-label="Menu"><span></span><span></span><span></span></summary>
+      <nav aria-label="Mobile"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/">Guides</a><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></nav></details>
+  </div>
+</header>
+<main id="main">
+<article class="prose">
+  <p class="crumbs"><a href="../">tapStat</a> · Tracking</p>
+  <h1>Why GA4 revenue doesn't match Shopify</h1>
+  <p class="meta">Updated 25 October 2026 · 7 min read</p>
+
+  <p class="lead">GA4 and your store count different things in different ways, so they will never match to the cent. A steady gap of a few percent up to around 15% is common. What matters is that the gap stays steady. A gap that suddenly grows means tracking broke.</p>
+
+  <h2>The 9 reasons the numbers differ</h2>
+  <ol class="steps">
+    <li><strong>Consent and cookie banners.</strong> With Consent Mode, visitors who decline analytics aren't fully counted. In the EU this is often the biggest single cause.</li>
+    <li><strong>Ad blockers and privacy browsers.</strong> They block the GA4 tag for part of your visitors, so their orders never reach GA4.</li>
+    <li><strong>The thank-you page never loads.</strong> Customers who pay by bank app, PayPal or iDEAL and don't come back to your site may never trigger the purchase event.</li>
+    <li><strong>Orders GA4 can't see.</strong> Draft orders, point-of-sale, phone orders, marketplace orders and subscription renewals happen without a website visit.</li>
+    <li><strong>Different revenue definitions.</strong> Your store may report totals with or without tax, shipping and discounts. GA4 reports whatever <code>value</code> your integration sends.</li>
+    <li><strong>Refunds.</strong> GA4's purchase revenue subtracts refunds only if your store sends refund events. Gross purchase revenue ignores them.</li>
+    <li><strong>Time zones and dates.</strong> GA4 uses the property's time zone. If it differs from your store's, orders around midnight land on different days.</li>
+    <li><strong>Currencies.</strong> GA4 converts to the property's currency at its own rate. Multi-currency stores see small differences every day.</li>
+    <li><strong>Duplicates and test orders.</strong> A purchase event sent twice, for example on a page reload, inflates GA4. Test orders inflate both, unless you filter them.</li>
+  </ol>
+
+  <h2>How big should the gap be?</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>GA4 compared with your store</th><th>What it usually means</th></tr></thead>
+      <tbody>
+        <tr><td>Within 5% lower</td><td>Healthy tracking</td></tr>
+        <tr><td>5 to 15% lower</td><td>Normal with a cookie banner in the EU, or many off-site payments</td></tr>
+        <tr><td>More than 20% lower</td><td>Something is missing: check payment redirects and the thank-you page</td></tr>
+        <tr><td>Higher than your store</td><td>Duplicate purchase events or test orders</td></tr>
+        <tr><td>A sudden change</td><td>Tracking broke or changed. Find out what was released that day</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Shopify specifics</h2>
+  <ul>
+    <li>Shopify sends GA4 events through the Google &amp; YouTube app or a custom pixel. The old checkout scripts no longer run on the thank-you page, so old setups often stopped sending purchases.</li>
+    <li>Use one integration only. Running the Google &amp; YouTube app and a separate GTM purchase tag at the same time sends every order twice.</li>
+    <li>Shopify's own "Total sales" includes or excludes tax and shipping depending on the report. Compare GA4 with the same definition.</li>
+  </ul>
+
+  <h2>What to do about it</h2>
+  <ol>
+    <li>Pick one definition (for example gross sales excluding tax) and compare GA4 with that for the last 30 days, day by day.</li>
+    <li>Write down the normal gap. That's your baseline.</li>
+    <li>Use your store's back office for bookkeeping and GA4 for trends, channels and products.</li>
+    <li>Watch for the gap changing. That is the moment to investigate.</li>
+  </ol>
+  <figure><div class="phone"><img src="../img/alerts.webp" alt="tapStat alerts including tracking health" width="480" height="1000" loading="lazy"></div><figcaption>tapStat's tracking health alerts fire when purchases stop arriving.</figcaption></figure>
+  <p>tapStat shows <strong>gross revenue</strong> on the dashboard, so refunds that arrive later don't change yesterday's number, and refunds have their own line. Its free <strong>tracking health alerts</strong> tell you when purchase data stops coming in, which is the gap that matters most.</p>
+
+  <h2>Questions</h2>
+  <div class="faq">
+    <details><summary>Why is GA4 revenue lower than Shopify?</summary><p>Mostly because of cookie consent, ad blockers, customers who don't return to the thank-you page after paying, and orders without a website visit. A steady gap of up to around 15% is common.</p></details>
+    <details><summary>Why is GA4 revenue higher than Shopify?</summary><p>Usually duplicate purchase events, for example from two integrations sending the same order, or a thank-you page that fires again on reload. Check that each transaction ID appears once.</p></details>
+    <details><summary>Which number should I trust?</summary><p>Your store's back office for money, GA4 for where buyers came from and how they behaved. Keep the gap steady and both stay useful.</p></details>
+  </div>
+
+  <div class="cta" style="margin-top:40px">
+    <h2>Know when the gap breaks</h2>
+    <p>Tracking health alerts are free in tapStat.</p>
+    <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access%20(GA4%20vs%20Shopify)">Get early access</a></div>
+  </div>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+        <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
+        <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
+      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+    </div>
+    <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why did my online sales drop? Find the cause in GA4 · tapStat</title>
+<meta name="description" content="Online sales dropped and you don't know why? Split the drop into traffic, conversion rate and order value, then find the channel, device or product behind it. A step-by-step check in GA4, and the one-tap version in tapStat.">
+<link rel="canonical" href="https://tapstat.app/why-did-my-sales-drop/">
+<link rel="icon" href="../logo.png">
+<link rel="apple-touch-icon" href="../logo.png">
+<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#0F5132">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tapStat">
+<meta property="og:title" content="Why did my online sales drop?">
+<meta property="og:description" content="Online sales dropped and you don't know why? Split the drop into traffic, conversion rate and order value, then find the channel, device or product behind it. A step-by-step check in GA4, and the one-tap version in tapStat.">
+<meta property="og:url" content="https://tapstat.app/why-did-my-sales-drop/">
+<meta property="og:image" content="https://tapstat.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="YkdE_ewxdPoCmlzKN3Q8Ksq0IS82m9GagVURQ94Gfw0">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSC5XK63');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E0RFVS9KZG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E0RFVS9KZG');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why did my sales drop suddenly?", "acceptedAnswer": {"@type": "Answer", "text": "Check whether sessions, conversion rate or average order value fell. A sudden drop in one day is most often a paused campaign, a checkout or payment bug, or broken tracking."}}, {"@type": "Question", "name": "How do I know if a sales drop is normal?", "acceptedAnswer": {"@type": "Answer", "text": "Compare with the same weekday over the last four weeks rather than with yesterday. If today is below all four, it's worth investigating. If it's within their range, it's normal variation."}}, {"@type": "Question", "name": "Can GA4 tell me why revenue changed?", "acceptedAnswer": {"@type": "Answer", "text": "GA4 shows the pieces, but you have to put them together across several reports. tapStat's Why it changed does that in one screen."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Why did my online sales drop?", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}, "image": "https://tapstat.app/img/og.png", "mainEntityOfPage": "https://tapstat.app/why-did-my-sales-drop/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "tapStat", "item": "https://tapstat.app/"}, {"@type": "ListItem", "position": 2, "name": "Why did my sales drop?", "item": "https://tapstat.app/why-did-my-sales-drop/"}]}</script>
+</head>
+<body class="">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="../"><img src="../logo.png" alt="" width="36" height="36"><span>tapStat</span></a>
+    <nav class="nav" aria-label="Main"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/">Guides</a></nav>
+    <a class="btn btn-sm" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a>
+    <details class="menu"><summary aria-label="Menu"><span></span><span></span><span></span></summary>
+      <nav aria-label="Mobile"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/">Guides</a><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></nav></details>
+  </div>
+</header>
+<main id="main">
+<article class="prose">
+  <p class="crumbs"><a href="../">tapStat</a> · Diagnose a drop</p>
+  <h1>Why did my online sales drop?</h1>
+  <p class="meta">Updated 25 October 2026 · 8 min read</p>
+
+  <p class="lead">Every drop in revenue comes from one of three places: fewer visitors, fewer of them buying, or smaller orders. Find which one moved, then find the channel, device or product behind it. That takes about ten minutes in GA4, or one tap in tapStat.</p>
+
+  <h2>Step 0: is it a real drop?</h2>
+  <p>Before you dig, rule out the three false alarms that cause most panics:</p>
+  <ul>
+    <li><strong>You compared the wrong days.</strong> A Monday against a Sunday, or a normal week against last week's sale. Compare with the same weekday, ideally the median of the last four.</li>
+    <li><strong>The day isn't finished, or isn't processed.</strong> GA4 keeps updating the last 24 to 48 hours. Conversion rate looks low for recent days until late sessions are attributed. See <a href="../guides/ga4-conversion-rate-drop.html">why GA4 conversion rate dips</a>.</li>
+    <li><strong>Tracking broke, not sales.</strong> If your store's back office shows normal orders but GA4 doesn't, the problem is tracking. Run the <a href="../ga4-not-tracking-purchases/">purchase tracking check</a>.</li>
+  </ul>
+
+  <h2>Step 1: split revenue into its three parts</h2>
+  <p>Revenue = sessions × conversion rate × average order value. Put this period next to a fair comparison period and see which of the three moved:</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>What moved</th><th>What it usually means</th><th>Where to look next</th></tr></thead>
+      <tbody>
+        <tr><td>Sessions down</td><td>Fewer people arrived: an ad paused or ran out of budget, a ranking dropped, an email didn't go out</td><td>Channels and campaigns</td></tr>
+        <tr><td>Conversion rate down</td><td>People came but didn't buy: a checkout bug, a payment method down, a price or shipping change, out of stock</td><td>Device, browser, landing page, checkout funnel</td></tr>
+        <tr><td>Order value down</td><td>People bought less or cheaper: a discount, a best seller out of stock, a free shipping threshold changed</td><td>Products and coupons</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Step 2: find the source in GA4</h2>
+  <ol class="steps">
+    <li><strong>Traffic.</strong> Open <strong>Reports › Acquisition › Traffic acquisition</strong>, set your dates, click Compare and choose <em>Previous period (match day of week)</em>. Sort by the change in sessions. One channel usually explains most of the drop.</li>
+    <li><strong>Conversion.</strong> Open <strong>Reports › Tech › Overview</strong> or add a <em>Device category</em> comparison. A drop on one device or browser points to a bug. Then build a funnel exploration from <code>view_item</code> to <code>purchase</code> to see the step where people leave.</li>
+    <li><strong>Order value.</strong> Open <strong>Reports › Monetization › Ecommerce purchases</strong> and compare item revenue and quantity per product. Look for a best seller that fell away.</li>
+  </ol>
+  <p>On a laptop that takes ten to fifteen minutes. In the official app, explorations aren't available, so the funnel step needs a browser.</p>
+
+  <h2>The one-tap version</h2>
+  <figure><div class="phone"><img src="../img/marketing.webp" alt="tapStat marketing screen with revenue and ROAS per channel" width="480" height="1000" loading="lazy"></div><figcaption>Channels, spend and revenue side by side in tapStat.</figcaption></figure>
+  <p>tapStat does those steps for you. Tap any number on the dashboard and <strong>Why it changed</strong> splits the change into traffic, conversion rate and order value, then shows the channels, devices, countries, landing pages and products that moved most. Every comparison is weekday-aligned, so a quiet Sunday never looks like a crisis. Why it changed is part of Pro.</p>
+  <p>To catch the next drop before you go looking, turn on <a href="../ga4-sales-alerts/">sales alerts</a>. They compare each day with the median of the same weekday over the last four weeks.</p>
+
+  <h2>The usual suspects, by how often we see them</h2>
+  <ol>
+    <li>Paid campaigns paused, limited by budget or rejected.</li>
+    <li>A checkout or payment problem on one device or browser.</li>
+    <li>A best seller out of stock or removed.</li>
+    <li>Tracking broken after a theme, app or cookie banner change.</li>
+    <li>A discount or sale ending, so last week's comparison is unfair.</li>
+    <li>Seasonality: compare with the same weekday last year (see <a href="../ga4-compare-to-last-year/">how</a>).</li>
+  </ol>
+
+  <h2>Questions</h2>
+  <div class="faq">
+    <details><summary>Why did my sales drop suddenly?</summary><p>Check whether sessions, conversion rate or average order value fell. A sudden drop in one day is most often a paused campaign, a checkout or payment bug, or broken tracking.</p></details>
+    <details><summary>How do I know if a sales drop is normal?</summary><p>Compare with the same weekday over the last four weeks rather than with yesterday. If today is below all four, it's worth investigating. If it's within their range, it's normal variation.</p></details>
+    <details><summary>Can GA4 tell me why revenue changed?</summary><p>GA4 shows the pieces, but you have to put them together across several reports. tapStat's Why it changed does that in one screen.</p></details>
+  </div>
+
+  <div class="cta" style="margin-top:40px">
+    <h2>Know why, not just what</h2>
+    <p>Why it changed is one tap away in tapStat Pro, with 14 days free.</p>
+    <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access%20(sales%20drop)">Get early access</a></div>
+  </div>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+        <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
+        <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
+      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+    </div>
+    <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
+  </div>
+</footer>
+</body>
+</html>
