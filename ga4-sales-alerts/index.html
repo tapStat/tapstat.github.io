@@ -8,9 +8,10 @@
 <link rel="canonical" href="https://tapstat.app/ga4-sales-alerts/">
 <link rel="icon" href="../logo.png">
 <link rel="apple-touch-icon" href="../logo.png">
-<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
-<meta name="theme-color" content="#0F5132">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="Store sales alerts that don't cry wolf">
@@ -25,6 +26,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can Google Analytics send alerts when sales drop?", "acceptedAnswer": {"@type": "Answer", "text": "GA4's custom insights can email you when a metric changes by a set amount. They don't send push notifications and don't account for weekday patterns."}}, {"@type": "Question", "name": "Why do I get false conversion rate alerts?", "acceptedAnswer": {"@type": "Answer", "text": "GA4 keeps revising the last 24 to 48 hours while late traffic sources are attributed, which makes recent conversion rates look too low. Alerts on the newest day fire falsely. tapStat checks conversion rate on a settled day."}}, {"@type": "Question", "name": "Do alerts work for more than one store?", "acceptedAnswer": {"@type": "Answer", "text": "Alerts follow the store you have selected in the app. To keep an eye on several stores, the all-stores screen in Pro shows them side by side, with the one that needs attention on top."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Sales alerts that don't cry wolf", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}, "image": "https://tapstat.app/img/og.png", "mainEntityOfPage": "https://tapstat.app/ga4-sales-alerts/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "tapStat", "item": "https://tapstat.app/"}, {"@type": "ListItem", "position": 2, "name": "Sales alerts", "item": "https://tapstat.app/ga4-sales-alerts/"}]}</script>
+<script src="../js/site.js" defer></script>
 </head>
 <body class="">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -39,14 +41,15 @@
   </div>
 </header>
 <main id="main">
-<article class="prose">
+<div class="progress" aria-hidden="true"></div>
+<div class="article-shell"><article class="prose">
   <p class="crumbs"><a href="../">tapStat</a> · Alerts</p>
   <h1>Sales alerts that don't cry wolf</h1>
   <p class="meta">Updated 25 October 2026 · 5 min read</p>
 
   <p class="lead">An alert is only useful if you trust it. Most store alerts compare today with yesterday, so every quiet Sunday and every half-processed GA4 day fires a warning, and after a week you mute them. tapStat's alerts know your normal week and wait for GA4 to settle.</p>
 
-  <h2>What GA4 offers on its own</h2>
+  <h2 id="what-ga4-offers-on-its-own">What GA4 offers on its own</h2>
   <p>GA4 has <strong>custom insights</strong>: rules such as "revenue fell by more than 20%" that send an email or show in the Insights panel. They work, with limits:</p>
   <ul>
     <li>They arrive by email, not as a push notification on your phone.</li>
@@ -54,7 +57,7 @@
     <li>Conversion rate alerts on the newest day fire while GA4 is still attributing late sessions, which makes recent conversion rates look low. See <a href="../guides/ga4-conversion-rate-drop.html">why GA4 conversion rate dips</a>.</li>
   </ul>
 
-  <h2>How tapStat alerts work</h2>
+  <h2 id="how-tapstat-alerts-work">How tapStat alerts work</h2>
   <figure><div class="phone"><img src="../img/alerts.webp" alt="tapStat alert rules for revenue, orders and conversion rate" width="480" height="1000" loading="lazy"></div><figcaption>Alert rules in tapStat.</figcaption></figure>
   <ol class="steps">
     <li><strong>Each day is compared with its own weekday.</strong> Revenue on a Tuesday is compared with the median of the last four Tuesdays. One unusual week doesn't throw the baseline off.</li>
@@ -63,7 +66,7 @@
     <li><strong>Tracking health is watched separately.</strong> If purchase data stops arriving, you get a different alert, because it's a different problem.</li>
   </ol>
 
-  <h2>Free and Pro alerts</h2>
+  <h2 id="free-and-pro-alerts">Free and Pro alerts</h2>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Alert</th><th>Plan</th></tr></thead>
@@ -78,10 +81,10 @@
     </table>
   </div>
 
-  <h2>When an alert fires</h2>
+  <h2 id="when-an-alert-fires">When an alert fires</h2>
   <p>Tap it and tapStat opens on the number with <a href="../why-did-my-sales-drop/">Why it changed</a>: traffic, conversion rate or order value, and the channel, device or product behind it. You go from "something is wrong" to "the Meta campaign stopped" in two taps.</p>
 
-  <h2>Questions</h2>
+  <h2 id="questions">Questions</h2>
   <div class="faq">
     <details><summary>Can Google Analytics send alerts when sales drop?</summary><p>GA4's custom insights can email you when a metric changes by a set amount. They don't send push notifications and don't account for weekday patterns.</p></details>
     <details><summary>Why do I get false conversion rate alerts?</summary><p>GA4 keeps revising the last 24 to 48 hours while late traffic sources are attributed, which makes recent conversion rates look too low. Alerts on the newest day fire falsely. tapStat checks conversion rate on a settled day.</p></details>
@@ -94,15 +97,17 @@
     <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access%20(alerts)">Get early access</a></div>
   </div>
 </article>
+<aside class="toc"><nav aria-label="On this page"><p>On this page</p><a href="#what-ga4-offers-on-its-own">What GA4 offers on its own</a><a href="#how-tapstat-alerts-work">How tapStat alerts work</a><a href="#free-and-pro-alerts">Free and Pro alerts</a><a href="#when-an-alert-fires">When an alert fires</a><a href="#questions">Questions</a></nav></aside></div>
 </main>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
+    <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
   </div>
 </footer>

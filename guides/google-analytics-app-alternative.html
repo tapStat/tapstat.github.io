@@ -8,9 +8,10 @@
 <link rel="canonical" href="https://tapstat.app/guides/google-analytics-app-alternative.html">
 <link rel="icon" href="../logo.png">
 <link rel="apple-touch-icon" href="../logo.png">
-<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
-<meta name="theme-color" content="#0F5132">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="The Google Analytics app, and the best alternative for online stores (2026) · tapStat">
@@ -25,6 +26,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there an alternative to the Google Analytics app?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Apps such as tapStat read the same GA4 data through Google's official API. tapStat is built for online stores and adds widgets, same-weekday comparisons, why it changed, ROAS, profit and alerts."}}, {"@type": "Question", "name": "Is it safe to connect a third-party app to Google Analytics?", "acceptedAnswer": {"@type": "Answer", "text": "Choose an app that asks only for read-only access. tapStat uses Google's analytics.readonly permission, so it can read reports but can't change your settings or data."}}, {"@type": "Question", "name": "Does tapStat replace the GA4 website?", "acceptedAnswer": {"@type": "Answer", "text": "No. For deep analysis, explorations and setup, use the GA4 website. tapStat covers what a store owner checks every day, on the phone."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Google Analytics app, and the best alternative for online stores", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}, "image": "https://tapstat.app/img/og.png", "mainEntityOfPage": "https://tapstat.app/guides/google-analytics-app-alternative.html"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "tapStat", "item": "https://tapstat.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://tapstat.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "Google Analytics app alternative", "item": "https://tapstat.app/guides/google-analytics-app-alternative.html"}]}</script>
+<script src="../js/site.js" defer></script>
 </head>
 <body class="">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -39,17 +41,18 @@
   </div>
 </header>
 <main id="main">
-<article class="prose">
+<div class="progress" aria-hidden="true"></div>
+<div class="article-shell"><article class="prose">
   <p class="crumbs"><a href="./">Guides</a></p>
   <h1>The Google Analytics app, and the best alternative for online stores</h1>
   <p class="meta">Updated 25 October 2026 · 7 min read</p>
 
   <p class="lead">If you run an online store, you probably open Google Analytics on your phone more than anywhere else. And you probably close it again a little frustrated. Here is why, and what to look for in an alternative.</p>
 
-  <h2>What the official app does well</h2>
+  <h2 id="what-the-official-app-does-well">What the official app does well</h2>
   <p>Google's Analytics app is free, it's made by the people who make GA4, and it covers every property type: websites, apps, lead generation, publishers and stores. You can browse the standard reports, open realtime, and read the automated insights Google generates. If you're an analyst who wants the GA4 report library in your pocket, it does the job.</p>
 
-  <h2>Where store owners get stuck</h2>
+  <h2 id="where-store-owners-get-stuck">Where store owners get stuck</h2>
   <p>A store owner doesn't want a report library. They pick up their phone with a handful of questions: how much did we sell today, is that normal, and if not, why? The general-purpose app makes those questions harder than they need to be:</p>
   <ul>
     <li><strong>Comparisons that mislead.</strong> Comparing today with yesterday makes every Monday look like a disaster and every Sunday look like a win. Stores need same-weekday comparisons, and "today so far" compared with the same point in time last week.</li>
@@ -60,7 +63,7 @@
     <li><strong>Profit is invisible.</strong> GA4 knows revenue, not what you keep after product costs, fees, shipping and ads.</li>
   </ul>
 
-  <h2>What a store-focused GA4 app should do</h2>
+  <h2 id="what-a-store-focused-ga4-app-should-do">What a store-focused GA4 app should do</h2>
   <p>Whatever you choose, look for these:</p>
   <ol class="steps">
     <li><strong>It opens on revenue.</strong> Revenue, orders, average order value, conversion rate and refunds, before anything else.</li>
@@ -71,7 +74,7 @@
     <li><strong>It is read-only.</strong> An analytics app should never need permission to change your GA4 setup.</li>
   </ol>
 
-  <h2>tapStat, built for exactly this</h2>
+  <h2 id="tapstat-built-for-exactly-this">tapStat, built for exactly this</h2>
   <figure><div class="phone"><img src="../img/dashboard.webp" alt="tapStat dashboard with today's pace" width="480" height="1000" loading="lazy"></div><figcaption>tapStat's dashboard: today's pace against the same weekday last week.</figcaption></figure>
   <p>We built tapStat because we had the same frustration. It reads the same GA4 data as Google's app, with read-only access, and organises it around a store owner's day: today's pace, same-weekday comparisons, why it changed, product winners and losers, ROAS for Google Ads and Meta Ads, profit, alerts, widgets and a Wear OS tile. An assistant answers questions in plain words from your own reports.</p>
 
@@ -93,7 +96,7 @@
     </table>
   </div>
 
-  <h2>Each problem, solved</h2>
+  <h2 id="each-problem-solved">Each problem, solved</h2>
   <ul>
     <li><strong>Nothing on your home screen:</strong> see the <a href="../google-analytics-widget/">GA4 widget for Android</a>.</li>
     <li><strong>Comparisons that mislead:</strong> how to <a href="../ga4-compare-to-last-year/">compare with the same weekday last year</a>.</li>
@@ -103,10 +106,10 @@
     <li><strong>Comparing every option:</strong> <a href="../best-google-analytics-apps/">the best Google Analytics apps in 2026</a>.</li>
   </ul>
 
-  <h2>When to stick with the official app</h2>
+  <h2 id="when-to-stick-with-the-official-app">When to stick with the official app</h2>
   <p>If you analyse a content site or a mobile app, or you need the full GA4 report library and explorations, Google's app and the GA4 website are the right tools. tapStat deliberately does less, so the things a store owner checks every day take three seconds.</p>
 
-  <h2>Questions</h2>
+  <h2 id="questions">Questions</h2>
   <div class="faq">
     <details><summary>Is there an alternative to the Google Analytics app?</summary><p>Yes. Apps such as tapStat read the same GA4 data through Google's official API. tapStat is built for online stores and adds widgets, same-weekday comparisons, why it changed, ROAS, profit and alerts.</p></details>
     <details><summary>Is it safe to connect a third-party app to Google Analytics?</summary><p>Choose an app that asks only for read-only access. tapStat uses Google's analytics.readonly permission, so it can read reports but can't change your settings or data.</p></details>
@@ -120,15 +123,17 @@
   </div>
   <p class="muted" style="font-size:14px;margin-top:20px">Based on the Google Analytics Android app as of October 2026. tapStat is not affiliated with Google.</p>
 </article>
+<aside class="toc"><nav aria-label="On this page"><p>On this page</p><a href="#what-the-official-app-does-well">What the official app does well</a><a href="#where-store-owners-get-stuck">Where store owners get stuck</a><a href="#what-a-store-focused-ga4-app-should-do">What a store-focused GA4 app should do</a><a href="#tapstat-built-for-exactly-this">tapStat, built for exactly this</a><a href="#each-problem-solved">Each problem, solved</a><a href="#when-to-stick-with-the-official-app">When to stick with the official app</a><a href="#questions">Questions</a></nav></aside></div>
 </main>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
+    <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
   </div>
 </footer>

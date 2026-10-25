@@ -8,9 +8,10 @@
 <link rel="canonical" href="https://tapstat.app/">
 <link rel="icon" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
-<link rel="preload" href="manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
-<meta name="theme-color" content="#0F5132">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="tapStat · The Google Analytics 4 app for online stores">
@@ -25,6 +26,10 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "tapStat", "operatingSystem": "Android, Wear OS", "applicationCategory": "BusinessApplication", "description": "A Google Analytics 4 app for ecommerce store owners: revenue, orders, products, marketing ROAS, profit, alerts, widgets and an AI assistant.", "offers": [{"@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Pro monthly", "price": "7", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Pro yearly", "price": "70", "priceCurrency": "EUR"}, {"@type": "Offer", "name": "Team yearly", "price": "190", "priceCurrency": "EUR"}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "tapStat", "url": "https://tapstat.app/", "logo": "https://tapstat.app/logo.png", "email": "eliasraiss@hotmail.com"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Which stores does tapStat work with?", "acceptedAnswer": {"@type": "Answer", "text": "Any online store that sends ecommerce events to Google Analytics 4: Shopify, WooCommerce, Magento, Shopware, Lightspeed, BigCommerce or your own build. If you can see purchases in GA4, tapStat can show them."}}, {"@type": "Question", "name": "Do I need to change anything in Google Analytics?", "acceptedAnswer": {"@type": "Answer", "text": "No. tapStat reads the data you already collect. To see ad spend for Meta, TikTok or Pinterest, turn on GA4's cost data import; our guide shows how."}}, {"@type": "Question", "name": "Is there an iPhone app?", "acceptedAnswer": {"@type": "Answer", "text": "Not yet. tapStat is on Android and Wear OS today. iPhone is on the roadmap; vote for it if you want it sooner."}}, {"@type": "Question", "name": "Can I log in on this website?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything happens in the app. This site is where you learn about tapStat, follow the roadmap and read our guides."}}, {"@type": "Question", "name": "When can I install it?", "acceptedAnswer": {"@type": "Answer", "text": "tapStat is finishing Google's verification and will be on Google Play soon. Ask for early access and you'll hear the day it is live."}}]}</script>
+<script src="js/site.js" defer></script>
+<script src="js/gsap.min.js" defer></script>
+<script src="js/ScrollTrigger.min.js" defer></script>
+<script src="js/motion.js" defer></script>
 </head>
 <body class="">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -42,43 +47,55 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow rise">For Shopify, WooCommerce and every GA4 store</span>
-      <h1 class="rise d1">Your store's Google Analytics, <span>built for your phone.</span></h1>
-      <p class="lead rise d2">tapStat opens on what you check first: revenue, orders and today's pace against last week. Then it tells you why the numbers moved. No reports to build, no laptop needed.</p>
-      <div class="actions rise d3">
+      <h1 class="rise">Your store's Google Analytics, built for your phone.</h1>
+      <p class="lead rise d1">tapStat opens on what you check first: revenue, orders and today's pace against last week. Then it tells you why the numbers moved. No reports to build, no laptop needed.</p>
+      <div class="actions rise d2">
         <a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a>
         <a class="btn btn-ghost" href="features.html">See what it does</a>
       </div>
       <p class="hero-note rise d3">Android and Wear OS · Free plan · Pro free for 14 days · Read-only access to your data</p>
     </div>
-    <div class="hero-phones" aria-hidden="true">
-      <div class="glow"></div>
-      <div class="phone p1"><img src="img/dashboard.webp" alt="" width="480" height="1000"></div>
-      <div class="phone p2"><img src="img/marketing.webp" alt="" width="480" height="1000" loading="lazy"></div>
+    <div class="stage">
+      <div class="stage-grid" aria-hidden="true"></div>
+      <div class="phone" aria-hidden="true"><img src="img/dashboard.webp" alt="" width="480" height="1000" fetchpriority="high"></div>
+      <div class="pace" data-pace data-ui>
+        <div class="pace-top">
+          <div><p class="pace-label">Today so far · <span data-time>14:00</span></p><p class="pace-value" data-now>€1,724</p></div>
+          <span class="pace-delta">▲ 10.5%</span>
+        </div>
+        <svg viewBox="0 0 320 124" role="img" aria-label="Today's revenue, solid, against the same weekday last week, dashed">
+          <path class="l-last" d="M0.0 120.0L3.3 119.7L6.7 119.5L10.0 119.2L13.3 118.9L16.7 118.7L20.0 118.5L23.3 118.4L26.7 118.2L30.0 118.1L33.3 117.9L36.7 117.8L40.0 117.7L43.3 117.6L46.7 117.5L50.0 117.4L53.3 117.3L56.7 117.3L60.0 117.2L63.3 117.1L66.7 117.0L70.0 116.8L73.3 116.7L76.7 116.6L80.0 116.4L83.3 116.2L86.7 115.9L90.0 115.6L93.3 115.3L96.7 114.8L100.0 114.3L103.3 113.8L106.7 113.3L110.0 112.5L113.3 111.8L116.7 111.0L120.0 110.2L123.3 109.2L126.7 108.2L130.0 107.2L133.3 106.3L136.7 105.2L140.0 104.1L143.3 103.0L146.7 101.9L150.0 100.7L153.3 99.5L156.7 98.3L160.0 97.2L163.3 95.9L166.7 94.7L170.0 93.5L173.3 92.2L176.7 91.0L180.0 89.8L183.3 88.6L186.7 87.4L190.0 86.2L193.3 85.0L196.7 83.8L200.0 82.6L203.3 81.4L206.7 80.2L210.0 79.0L213.3 77.7L216.7 76.5L220.0 75.2L223.3 74.0L226.7 72.7L230.0 71.4L233.3 70.1L236.7 68.8L240.0 67.5L243.3 66.1L246.7 64.7L250.0 63.4L253.3 62.0L256.7 60.4L260.0 58.9L263.3 57.3L266.7 55.8L270.0 54.0L273.3 52.3L276.7 50.5L280.0 48.8L283.3 47.1L286.7 45.4L290.0 43.7L293.3 42.0L296.7 40.7L300.0 39.4L303.3 38.2L306.7 36.9L310.0 36.1L313.3 35.4L316.7 34.6L320.0 33.8"/><path class="a-today" d="M0.0 120.0L3.3 119.7L6.7 119.4L10.0 119.1L13.3 118.8L16.7 118.6L20.0 118.4L23.3 118.1L26.7 117.9L30.0 117.8L33.3 117.7L36.7 117.5L40.0 117.4L43.3 117.3L46.7 117.2L50.0 117.1L53.3 117.0L56.7 116.9L60.0 116.8L63.3 116.7L66.7 116.6L70.0 116.4L73.3 116.3L76.7 116.1L80.0 116.0L83.3 115.7L86.7 115.4L90.0 115.1L93.3 114.8L96.7 114.3L100.0 113.7L103.3 113.2L106.7 112.6L110.0 111.7L113.3 110.8L116.7 109.9L120.0 109.0L123.3 107.8L126.7 106.7L130.0 105.5L133.3 104.4L136.7 103.1L140.0 101.9L143.3 100.6L146.7 99.4L150.0 98.1L153.3 96.9L156.7 95.6L160.0 94.3L163.3 93.0L166.7 91.7L170.0 90.4L173.3 89.1L176.7 87.8L180.0 86.5L183.3 85.3L186.7 84.0L186.7 120L0 120Z"/><path class="l-today" d="M0.0 120.0L3.3 119.7L6.7 119.4L10.0 119.1L13.3 118.8L16.7 118.6L20.0 118.4L23.3 118.1L26.7 117.9L30.0 117.8L33.3 117.7L36.7 117.5L40.0 117.4L43.3 117.3L46.7 117.2L50.0 117.1L53.3 117.0L56.7 116.9L60.0 116.8L63.3 116.7L66.7 116.6L70.0 116.4L73.3 116.3L76.7 116.1L80.0 116.0L83.3 115.7L86.7 115.4L90.0 115.1L93.3 114.8L96.7 114.3L100.0 113.7L103.3 113.2L106.7 112.6L110.0 111.7L113.3 110.8L116.7 109.9L120.0 109.0L123.3 107.8L126.7 106.7L130.0 105.5L133.3 104.4L136.7 103.1L140.0 101.9L143.3 100.6L146.7 99.4L150.0 98.1L153.3 96.9L156.7 95.6L160.0 94.3L163.3 93.0L166.7 91.7L170.0 90.4L173.3 89.1L176.7 87.8L180.0 86.5L183.3 85.3L186.7 84.0"/><path class="l-proj" d="M186.7 84.0L186.7 84.0L190.0 82.6L193.3 81.3L196.7 80.0L200.0 78.7L203.3 77.4L206.7 76.0L210.0 74.7L213.3 73.3L216.7 71.9L220.0 70.5L223.3 69.2L226.7 67.8L230.0 66.3L233.3 64.9L236.7 63.4L240.0 62.0L243.3 60.5L246.7 59.0L250.0 57.4L253.3 55.9L256.7 54.2L260.0 52.5L263.3 50.8L266.7 49.0L270.0 47.1L273.3 45.2L276.7 43.3L280.0 41.3L283.3 39.5L286.7 37.6L290.0 35.7L293.3 33.8L296.7 32.4L300.0 31.0L303.3 29.6L306.7 28.2L310.0 27.3L313.3 26.5L316.7 25.7L320.0 24.8"/><circle class="dot" r="6" cx="186.7" cy="84.0"/>
+        </svg>
+        <div class="pace-meta"><div><small>Projected day</small><b data-proj>€4,551</b></div><div><small>Orders so far</small><b data-orders>32</b></div></div>
+        <label for="paceHour"><span>Drag through a demo Tuesday</span><span>vs last Tuesday</span></label>
+        <input id="paceHour" type="range" min="0.25" max="24" step="0.25" value="14">
+      </div>
     </div>
   </div>
 </section>
 
 <div class="strip">
-  <div class="wrap"><ul>
-    <li>Works with Google Analytics 4</li>
-    <li>Google Ads and Meta Ads spend</li>
-    <li>Home screen widgets and Wear OS</li>
+  <ul>
+    <li>Google Analytics 4</li>
+    <li>Shopify</li>
+    <li>WooCommerce</li>
+    <li>Google Ads</li>
+    <li>Meta Ads</li>
+    <li>Home screen widgets</li>
+    <li>Wear OS</li>
     <li>English and Nederlands</li>
-    <li>Never changes your GA4 setup</li>
-  </ul></div>
+  </ul>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="section-head center">
+    <div class="split-head">
       <h2>Three seconds, not three menus</h2>
       <p class="lead">Google's own Analytics app is a report browser built for analysts. Store owners pick up their phone with one question: how are we doing, and why? tapStat answers that first.</p>
     </div>
-    <div class="grid g3">
-      <div class="card"><div class="icon">⚡</div><h3>Know in one glance</h3><p>Revenue, orders, average order value, conversion rate and refunds on one screen, each compared with the same weekday last week, so a quiet Monday never looks like a crisis.</p></div>
-      <div class="card"><div class="icon">🔎</div><h3>See why it changed</h3><p>Is it traffic, conversion or order value? Which channel, device or product? tapStat splits the change for you, and the assistant explains it in plain words.</p></div>
-      <div class="card"><div class="icon">🔔</div><h3>Hear about it first</h3><p>Alerts that know your normal week, a morning brief at 8:00, and a widget on your home screen. You find out about a broken checkout before your customers tell you.</p></div>
+    <div class="versus" aria-label="Menus between you and today's revenue">
+      <div><p>Menus to open in the Google Analytics app before you see today's ecommerce revenue</p><b>3</b></div>
+      <div><p>Menus in tapStat. It opens on revenue, orders and today's pace</p><b>0</b></div>
     </div>
   </div>
 </section>
@@ -86,49 +103,89 @@
 <section class="band">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">A glimpse of the app</span>
-      <h2>Everything a store owner checks, nothing they don't</h2>
+      <h2>Know it, see why, hear it first</h2>
+      <p class="lead">Three jobs a store owner's phone should do, and the screens in tapStat that do them.</p>
     </div>
-
-    <div class="feature">
-      <div class="feature-media"><div class="phone"><img src="img/dashboard.webp" alt="tapStat dashboard showing today's revenue, pace against last week, orders, conversion rate and refunds" width="480" height="1000" loading="lazy"></div></div>
-      <div>
-        <h3>Today's pace, not just today's total</h3>
-        <p class="muted">At 9:00 a total means little. tapStat compares your sales with the same weekday last week up to the same hour, and projects where the day will end.</p>
-        <ul><li>Gross revenue, orders, AOV, conversion rate and refunds</li><li>Today, yesterday, 7 or 30 days, or any range you pick</li><li>Same weekday last year, Black Friday against last Black Friday <span class="tag pro">Pro</span></li></ul>
+    <div class="claims">
+      <div class="claim">
+        <div class="ui" data-ui>
+          <div class="ui-row"><span class="ui-k">Gross revenue · today</span><span class="pace-delta">▲ 10.5%</span></div>
+          <div class="ui-v">€1,724</div>
+          <svg class="ui-spark" viewBox="0 0 300 56" aria-hidden="true"><path d="M0 50 L30 48 L60 44 L90 36 L120 30 L150 24 L180 20 L210 15"/><path d="M0 51 L30 49 L60 46 L90 40 L120 35 L150 30 L180 26 L210 22 L240 16 L270 9 L300 4"/></svg>
+          <div class="ui-tiles"><div><small>Orders</small><b>32</b></div><div><small>AOV</small><b>€53.88</b></div><div><small>Conv.</small><b>2.4%</b></div></div>
+        </div>
+        <h3>Know in one glance</h3>
+        <p>Revenue, orders, average order value, conversion rate and refunds on one screen, each compared with the same weekday last week, so a quiet Monday never looks like a crisis.</p>
+      </div>
+      <div class="claim">
+        <div class="ui" data-ui>
+          <div class="ui-row"><span class="ui-k">Why revenue changed · yesterday</span><span class="pace-delta is-down">▼ 18%</span></div>
+          <div class="ui-bars">
+            <div class="ui-bar"><span>Sessions</span><i style="--w:22%" class="neg"></i><span>−4%</span></div>
+            <div class="ui-bar"><span>Conversion rate</span><i style="--w:78%" class="neg"></i><span>−15%</span></div>
+            <div class="ui-bar"><span>Order value</span><i style="--w:8%"></i><span>+1%</span></div>
+          </div>
+          <div class="ui-note">Biggest mover: conversion on iPhone, Safari</div>
+        </div>
+        <h3>See why it changed</h3>
+        <p>Is it traffic, conversion or order value? Which channel, device or product? tapStat splits the change for you, and the assistant explains it in plain words.</p>
+      </div>
+      <div class="claim">
+        <div class="ui" data-ui>
+          <div class="ui-notif"><img src="logo.png" alt="" width="36" height="36" loading="lazy"><div><b>tapStat <span>09:12</span></b><p>Checkout conversion on mobile is 62% below a normal Tuesday.</p></div></div>
+          <div class="ui-notif is-quiet"><img src="logo.png" alt="" width="36" height="36" loading="lazy"><div><b>Morning brief <span>08:00</span></b><p>Yesterday €3,980, 6% above a normal Monday. Top product: Linen shirt.</p></div></div>
+        </div>
+        <h3>Hear about it first</h3>
+        <p>Alerts that know your normal week, a morning brief at 8:00, and a widget on your home screen. You find out about a broken checkout before your customers tell you.</p>
       </div>
     </div>
-
-    <div class="feature">
-      <div class="feature-media"><div class="phone"><img src="img/marketing.webp" alt="tapStat marketing screen with return on ad spend per channel for Google Ads and Meta Ads" width="480" height="1000" loading="lazy"></div></div>
-      <div>
-        <h3>Which ads actually pay</h3>
-        <p class="muted">Spend and return on ad spend per channel and campaign, with Google Ads and Meta Ads side by side. Paid Facebook and Instagram are combined into one Meta channel, so the money and the revenue line up.</p>
-        <ul><li>ROAS per channel and campaign</li><li>MER and wasted ad spend <span class="tag pro">Pro</span></li><li>Real profit after product costs, fees and shipping <span class="tag pro">Pro</span></li></ul>
-      </div>
-    </div>
-
-    <div class="feature">
-      <div class="feature-media"><div class="phone"><img src="img/assistant.webp" alt="Ask tapStat assistant explaining why revenue dropped yesterday" width="480" height="1000" loading="lazy"></div></div>
-      <div>
-        <h3>Ask tapStat anything about your store</h3>
-        <p class="muted">"Why did revenue drop yesterday?" The assistant runs the right GA4 reports and answers in a few sentences, with the reports it looked at listed underneath. Type, or just talk to it.</p>
-        <ul><li>Answers built from your own GA4 data <span class="tag pro">Pro</span></li><li>Voice questions and spoken answers <span class="tag pro">Pro</span></li><li>Winners, losers and products that get viewed but not bought <span class="tag pro">Pro</span></li></ul>
-      </div>
-    </div>
-
-    <p class="center" style="margin-top:32px"><a class="btn btn-ghost" href="features.html">See every feature</a></p>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="section-head center">
+    <div class="section-head">
+      <h2>Everything a store owner checks, nothing they don't</h2>
+    </div>
+    <div class="story">
+      <div>
+        <div class="story-step is-active">
+          <div class="phone"><img src="img/dashboard.webp" alt="tapStat dashboard showing today's revenue, pace against last week, orders, conversion rate and refunds" width="480" height="1000" loading="lazy"></div>
+          <h3>Today's pace, not just today's total</h3>
+          <p class="muted">At 9:00 a total means little. tapStat compares your sales with the same weekday last week up to the same hour, and projects where the day will end.</p>
+          <ul><li>Gross revenue, orders, AOV, conversion rate and refunds</li><li>Today, yesterday, 7 or 30 days, or any range you pick</li><li>Same weekday last year, Black Friday against last Black Friday <span class="tag pro">Pro</span></li></ul>
+        </div>
+        <div class="story-step">
+          <div class="phone"><img src="img/marketing.webp" alt="tapStat marketing screen with return on ad spend per channel for Google Ads and Meta Ads" width="480" height="1000" loading="lazy"></div>
+          <h3>Which ads actually pay</h3>
+          <p class="muted">Spend and return on ad spend per channel and campaign, with Google Ads and Meta Ads side by side. Paid Facebook and Instagram are combined into one Meta channel, so the money and the revenue line up.</p>
+          <ul><li>ROAS per channel and campaign</li><li>MER and wasted ad spend <span class="tag pro">Pro</span></li><li>Real profit after product costs, fees and shipping <span class="tag pro">Pro</span></li></ul>
+        </div>
+        <div class="story-step">
+          <div class="phone"><img src="img/assistant.webp" alt="Ask tapStat assistant explaining why revenue dropped yesterday" width="480" height="1000" loading="lazy"></div>
+          <h3>Ask tapStat anything about your store</h3>
+          <p class="muted">"Why did revenue drop yesterday?" The assistant runs the right GA4 reports and answers in a few sentences, with the reports it looked at listed underneath. Type, or just talk to it.</p>
+          <ul><li>Answers built from your own GA4 data <span class="tag pro">Pro</span></li><li>Voice questions and spoken answers <span class="tag pro">Pro</span></li><li>Winners, losers and products that get viewed but not bought <span class="tag pro">Pro</span></li></ul>
+          <div class="actions"><a class="btn btn-ghost" href="features.html">See every feature</a></div>
+        </div>
+      </div>
+      <div class="story-stage" aria-hidden="true">
+        <div class="phone is-active"><img src="img/dashboard.webp" alt="" width="480" height="1000" loading="lazy"></div>
+        <div class="phone"><img src="img/marketing.webp" alt="" width="480" height="1000" loading="lazy"></div>
+        <div class="phone"><img src="img/assistant.webp" alt="" width="480" height="1000" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <div class="split-head">
       <h2>tapStat next to the official app</h2>
       <p class="lead">Both read the same Google Analytics 4 data. tapStat is built around a store owner's day.</p>
     </div>
     <div class="table-wrap">
-      <table>
+      <table class="compare">
         <thead><tr><th>What you need</th><th>tapStat</th><th>Google Analytics app</th></tr></thead>
         <tbody>
           <tr><td>Opens on revenue, orders and conversion rate</td><td class="y">Yes</td><td class="p">After setup</td></tr>
@@ -143,56 +200,60 @@
         </tbody>
       </table>
     </div>
-    <p class="muted" style="font-size:14px;margin-top:12px">Compared with the Google Analytics Android app as of October 2026. Read the <a href="guides/google-analytics-app-alternative.html">full comparison</a>.</p>
-  </div>
-</section>
-
-<section class="band">
-  <div class="wrap">
-    <div class="section-head center">
-      <h2>Simple pricing</h2>
-      <p class="lead">Start free with one store. Upgrade when tapStat has caught its first problem for you.</p>
-    </div>
-    <div class="grid g3 plans">
-      <div class="card plan"><h3>Free</h3><div class="price">€0</div><p class="muted">One store, the daily essentials.</p><a class="btn btn-ghost" href="pricing.html">Compare plans</a></div>
-      <div class="card plan hero-card"><span class="badge">Most popular</span><h3>Pro</h3><div class="price">€7<small> / month</small></div><p>Or €70 a year. Every feature, every store. 14 days free.</p><a class="btn" href="pricing.html">See Pro</a></div>
-      <div class="card plan"><h3>Team</h3><div class="price">€19<small> / month</small></div><p class="muted">Pro for up to 5 people on the same stores.</p><a class="btn btn-ghost" href="teams.html">See Team</a></div>
-    </div>
+    <p class="muted" style="font-size:15px;margin-top:16px">Compared with the Google Analytics Android app as of October 2026. Read the <a href="guides/google-analytics-app-alternative.html">full comparison</a>.</p>
   </div>
 </section>
 
 <section>
-  <div class="wrap grid g2" style="align-items:center">
+  <div class="wrap">
+    <div class="split-head">
+      <h2>Simple pricing</h2>
+      <p class="lead">Start free with one store. Upgrade when tapStat has caught its first problem for you.</p>
+    </div>
+    <div class="grid plans">
+      <div class="card plan"><h3>Free</h3><p class="muted">One store, the daily essentials.</p><div class="price">€0</div><p class="muted">Forever, for one store.</p><a class="btn btn-ghost" href="pricing.html">Compare plans</a></div>
+      <div class="card plan hero-card"><span class="badge">Most popular</span><h3>Pro</h3><p>Every feature, every store. 14 days free.</p><div class="price">€7<small> / month</small></div><p>Or €70 a year, which is €5.83 a month.</p><a class="btn" href="pricing.html">See Pro</a></div>
+      <div class="card plan"><h3>Team</h3><p class="muted">Pro for up to 5 people on the same stores.</p><div class="price">€19<small> / month</small></div><p class="muted">A full team pays €3.80 each.</p><a class="btn btn-ghost" href="teams.html">See Team</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap public">
     <div>
-      <span class="eyebrow">Built in public</span>
       <h2>You decide what we build next</h2>
       <p class="lead">tapStat ships in small steps, often several a week. The roadmap is public, every release is in the changelog, and the features with the most votes go first.</p>
       <div class="actions"><a class="btn" href="roadmap.html">See the roadmap</a><a class="btn btn-ghost" href="changelog.html">Changelog</a></div>
     </div>
-    <div class="card">
-      <h3>Shipped this week</h3>
-      <ul class="muted" style="padding-left:20px;margin:0">
+    <div class="shipped">
+      <h3>Shipped this week <span class="live">Building in public</span></h3>
+      <ol>
         <li>Compare any two periods, including the same weekday last year</li>
         <li>Profit with product costs, fees and shipping</li>
         <li>Talk to the assistant and hear the answer</li>
         <li>tapStat in Dutch</li>
         <li>Conversion alerts that wait until GA4 has settled</li>
-      </ul>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap trust">
+    <div>
+      <h2>How tapStat uses your Google data</h2>
+      <span class="scope">Read-only: <code>analytics.readonly</code></span>
+    </div>
+    <div>
+      <p>When you sign in with Google, tapStat asks for <strong>read-only access to Google Analytics</strong> (<code>analytics.readonly</code>). It uses that access only to list the GA4 properties you can see and to run reports on them, so it can show your store's numbers in the app, in widgets, in alerts and in digests. tapStat never changes anything in your Google Analytics account, does not sell your data, and does not use it for advertising.</p>
+      <p>Read the <a href="privacy.html">privacy policy</a> for the details, including Google's Limited Use requirements.</p>
     </div>
   </div>
 </section>
 
 <section class="band">
-  <div class="wrap narrow">
-    <h2>How tapStat uses your Google data</h2>
-    <p>When you sign in with Google, tapStat asks for <strong>read-only access to Google Analytics</strong> (<code>analytics.readonly</code>). It uses that access only to list the GA4 properties you can see and to run reports on them, so it can show your store's numbers in the app, in widgets, in alerts and in digests. tapStat never changes anything in your Google Analytics account, does not sell your data, and does not use it for advertising.</p>
-    <p>Read the <a href="privacy.html">privacy policy</a> for the details, including Google's Limited Use requirements.</p>
-  </div>
-</section>
-
-<section>
   <div class="wrap narrow faq">
-    <h2 class="center">Questions</h2>
+    <h2>Questions</h2>
     <details><summary>Which stores does tapStat work with?</summary><p>Any online store that sends ecommerce events to Google Analytics 4: Shopify, WooCommerce, Magento, Shopware, Lightspeed, BigCommerce or your own build. If you can see purchases in GA4, tapStat can show them.</p></details>
     <details><summary>Do I need to change anything in Google Analytics?</summary><p>No. tapStat reads the data you already collect. To see ad spend for Meta, TikTok or Pinterest, turn on GA4's cost data import; our <a href="guides/meta-ads-cost-in-ga4.html">guide</a> shows how.</p></details>
     <details><summary>Is there an iPhone app?</summary><p>Not yet. tapStat is on Android and Wear OS today. iPhone is on the <a href="roadmap.html">roadmap</a>; vote for it if you want it sooner.</p></details>
@@ -201,12 +262,12 @@
   </div>
 </section>
 
-<section style="padding-top:0">
+<section>
   <div class="wrap">
     <div class="cta">
       <h2>Stop opening a laptop to check your store</h2>
       <p>Get tapStat on your phone the day it lands on Google Play, with Pro free for 14 days.</p>
-      <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a><a class="btn btn-ghost" href="pricing.html">See pricing</a></div>
+      <div class="actions"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a><a class="btn btn-ghost" href="pricing.html">See pricing</a></div>
     </div>
   </div>
 </section>
@@ -214,11 +275,12 @@
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href=""><img src="logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href=""><img src="logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><h4>Product</h4><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="teams.html">Team plan</a><a href="roadmap.html">Roadmap</a><a href="changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="why-did-my-sales-drop/">Why did my sales drop?</a><a href="google-analytics-widget/">GA4 widget for Android</a><a href="ga4-sales-alerts/">Sales alerts</a><a href="ga4-compare-to-last-year/">Compare with last year</a><a href="for-agencies/">For agencies</a><a href="triple-whale-alternative/">Triple Whale alternative</a><a href="best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="guides/">All guides</a><a href="guides/google-analytics-app-alternative.html">GA app alternative</a><a href="guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="teams.html">Team plan</a><a href="roadmap.html">Roadmap</a><a href="changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="why-did-my-sales-drop/">Why did my sales drop?</a><a href="google-analytics-widget/">GA4 widget for Android</a><a href="ga4-sales-alerts/">Sales alerts</a><a href="ga4-compare-to-last-year/">Compare with last year</a><a href="for-agencies/">For agencies</a><a href="triple-whale-alternative/">Triple Whale alternative</a><a href="best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="guides/">All guides</a><a href="guides/google-analytics-app-alternative.html">GA app alternative</a><a href="guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
+    <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
   </div>
 </footer>

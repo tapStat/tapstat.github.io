@@ -8,9 +8,10 @@
 <link rel="canonical" href="https://tapstat.app/google-analytics-widget/">
 <link rel="icon" href="../logo.png">
 <link rel="apple-touch-icon" href="../logo.png">
-<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
-<meta name="theme-color" content="#0F5132">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="A Google Analytics 4 widget for your store">
@@ -25,6 +26,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the Google Analytics app have a widget?", "acceptedAnswer": {"@type": "Answer", "text": "No. The official Google Analytics app for Android doesn't offer a home screen widget as of October 2026. You need a third-party app such as tapStat to see GA4 numbers without opening an app."}}, {"@type": "Question", "name": "Is there a Google Analytics widget for iPhone?", "acceptedAnswer": {"@type": "Answer", "text": "tapStat is on Android and Wear OS today. iPhone is on the roadmap."}}, {"@type": "Question", "name": "Does the widget use my real GA4 data?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. tapStat reads your GA4 property through Google's Analytics Data API with read-only access. It never changes anything in your account."}}, {"@type": "Question", "name": "How fresh is the number?", "acceptedAnswer": {"@type": "Answer", "text": "The widget shows what GA4 reports for today. Today's numbers in GA4 usually run a little behind real orders, so treat it as a close reading, not a till receipt."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A Google Analytics 4 widget for your home screen", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}, "image": "https://tapstat.app/img/og.png", "mainEntityOfPage": "https://tapstat.app/google-analytics-widget/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "tapStat", "item": "https://tapstat.app/"}, {"@type": "ListItem", "position": 2, "name": "Google Analytics widget", "item": "https://tapstat.app/google-analytics-widget/"}]}</script>
+<script src="../js/site.js" defer></script>
 </head>
 <body class="">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -39,7 +41,8 @@
   </div>
 </header>
 <main id="main">
-<article class="prose">
+<div class="progress" aria-hidden="true"></div>
+<div class="article-shell"><article class="prose">
   <p class="crumbs"><a href="../">tapStat</a> · Widgets</p>
   <h1>A Google Analytics 4 widget for your home screen</h1>
   <p class="meta">Updated 25 October 2026 · 5 min read</p>
@@ -48,7 +51,7 @@
 
   <figure><div class="phone"><img src="../img/dashboard.webp" alt="tapStat dashboard showing today's revenue and today's pace, the same numbers the widget shows" width="480" height="1000"></div><figcaption>The widget shows the same numbers as the top of the dashboard.</figcaption></figure>
 
-  <h2>What a store widget should show</h2>
+  <h2 id="what-a-store-widget-should-show">What a store widget should show</h2>
   <p>Most GA4 widgets show users or sessions. That says little to a store owner. A widget for a store should answer "how are we doing today?" at a glance:</p>
   <ul>
     <li><strong>Today's revenue so far</strong>, gross, the way you think about sales.</li>
@@ -57,7 +60,7 @@
     <li><strong>A tap that opens the full picture</strong>, not a blank report.</li>
   </ul>
 
-  <h2>The widgets in tapStat</h2>
+  <h2 id="the-widgets-in-tapstat">The widgets in tapStat</h2>
   <div class="table-wrap">
     <table>
       <thead><tr><th>Widget</th><th>What it shows</th><th>Plan</th></tr></thead>
@@ -71,14 +74,14 @@
     </table>
   </div>
 
-  <h2>How to add it</h2>
+  <h2 id="how-to-add-it">How to add it</h2>
   <ol class="steps">
     <li><strong>Install tapStat and sign in with Google.</strong> tapStat asks for read-only access to Google Analytics and lists the GA4 properties your account can see.</li>
     <li><strong>Pick your store's property.</strong> The dashboard opens on today's revenue.</li>
     <li><strong>Long-press your home screen, tap Widgets and find tapStat.</strong> Drag the widget where you want it. It refreshes through the day.</li>
   </ol>
 
-  <h2>Other ways to get GA4 on your home screen</h2>
+  <h2 id="other-ways-to-get-ga4-on-your-home-screen">Other ways to get GA4 on your home screen</h2>
   <p>To be fair to the alternatives:</p>
   <ul>
     <li><strong>A bookmark to a GA4 report.</strong> Free, but it opens a desktop website on a small screen.</li>
@@ -87,7 +90,7 @@
   </ul>
   <p>See our <a href="../best-google-analytics-apps/">comparison of Google Analytics apps</a> for the full list.</p>
 
-  <h2>Questions</h2>
+  <h2 id="questions">Questions</h2>
   <div class="faq">
     <details><summary>Does the Google Analytics app have a widget?</summary><p>No. The official Google Analytics app for Android doesn't offer a home screen widget as of October 2026. You need a third-party app such as tapStat to see GA4 numbers without opening an app.</p></details>
     <details><summary>Is there a Google Analytics widget for iPhone?</summary><p>tapStat is on Android and Wear OS today. iPhone is on the <a href="../roadmap.html">roadmap</a>.</p></details>
@@ -101,15 +104,17 @@
     <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access%20(widget)">Get early access</a></div>
   </div>
 </article>
+<aside class="toc"><nav aria-label="On this page"><p>On this page</p><a href="#what-a-store-widget-should-show">What a store widget should show</a><a href="#the-widgets-in-tapstat">The widgets in tapStat</a><a href="#how-to-add-it">How to add it</a><a href="#other-ways-to-get-ga4-on-your-home-screen">Other ways to get GA4 on your home screen</a><a href="#questions">Questions</a></nav></aside></div>
 </main>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
+    <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
   </div>
 </footer>

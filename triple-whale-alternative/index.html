@@ -8,9 +8,10 @@
 <link rel="canonical" href="https://tapstat.app/triple-whale-alternative/">
 <link rel="icon" href="../logo.png">
 <link rel="apple-touch-icon" href="../logo.png">
-<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
-<meta name="theme-color" content="#0F5132">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="A Triple Whale alternative built on GA4">
@@ -25,6 +26,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is there a cheaper alternative to Triple Whale?", "acceptedAnswer": {"@type": "Answer", "text": "If you already use GA4, tapStat shows revenue, ROAS, MER and profit on your phone for free on one store, or €7 a month for Pro. It doesn't do pixel-based multi-touch attribution."}}, {"@type": "Question", "name": "Does tapStat work without Shopify?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. tapStat works with any store platform that sends ecommerce events to Google Analytics 4."}}, {"@type": "Question", "name": "Can I use tapStat and Triple Whale together?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Some stores use Triple Whale for attribution and tapStat for a quick GA4 view, alerts and widgets on their phone."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "A Triple Whale alternative for stores that already use GA4", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}, "image": "https://tapstat.app/img/og.png", "mainEntityOfPage": "https://tapstat.app/triple-whale-alternative/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "tapStat", "item": "https://tapstat.app/"}, {"@type": "ListItem", "position": 2, "name": "Triple Whale alternative", "item": "https://tapstat.app/triple-whale-alternative/"}]}</script>
+<script src="../js/site.js" defer></script>
 </head>
 <body class="">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -39,17 +41,18 @@
   </div>
 </header>
 <main id="main">
-<article class="prose">
+<div class="progress" aria-hidden="true"></div>
+<div class="article-shell"><article class="prose">
   <p class="crumbs"><a href="../">tapStat</a> · Alternatives</p>
   <h1>A Triple Whale alternative for stores that already use GA4</h1>
   <p class="meta">Updated 25 October 2026 · 6 min read</p>
 
   <p class="lead">Triple Whale is a strong tool for Shopify brands with large ad budgets: its own pixel, multi-touch attribution, creative analysis and a full mobile app. If what you really want is your revenue, ROAS and profit on your phone, and you already run GA4, you may not need all of that. tapStat is the lighter option.</p>
 
-  <h2>When Triple Whale is the right choice</h2>
+  <h2 id="when-triple-whale-is-the-right-choice">When Triple Whale is the right choice</h2>
   <p>To be fair: if you spend heavily on Meta and TikTok, run on Shopify and want pixel-based multi-touch attribution, creative reporting and a team of analysts working in one tool, Triple Whale is built for that, and tapStat isn't trying to replace it.</p>
 
-  <h2>When tapStat fits better</h2>
+  <h2 id="when-tapstat-fits-better">When tapStat fits better</h2>
   <ul>
     <li><strong>You're not on Shopify.</strong> tapStat works with any store that sends ecommerce events to GA4: WooCommerce, Shopware, Magento, BigCommerce, Lightspeed or your own build.</li>
     <li><strong>You don't want another pixel.</strong> tapStat reads the GA4 data you already collect, with read-only access. Nothing to install on your site.</li>
@@ -57,7 +60,7 @@
     <li><strong>You want answers more than dashboards.</strong> Why it changed, alerts that know your normal week, and a morning brief.</li>
   </ul>
 
-  <h2>Side by side</h2>
+  <h2 id="side-by-side">Side by side</h2>
   <div class="table-wrap">
     <table>
       <thead><tr><th></th><th>tapStat</th><th>Triple Whale</th></tr></thead>
@@ -77,14 +80,14 @@
   </div>
   <p class="muted" style="font-size:14px">Based on Triple Whale's public pages in October 2026. Check their site for current plans.</p>
 
-  <h2>What you give up with GA4 data</h2>
+  <h2 id="what-you-give-up-with-ga4-data">What you give up with GA4 data</h2>
   <p>GA4 misses some orders because of cookie consent and ad blockers, and its attribution is GA4's, not a dedicated pixel's. For most small and mid-sized stores that's fine for daily decisions, especially if you watch trends and keep the gap with your store steady. Read <a href="../ga4-revenue-not-matching-shopify/">why GA4 revenue doesn't match Shopify</a> to see what's normal.</p>
 
-  <h2>See your ads and profit in tapStat</h2>
+  <h2 id="see-your-ads-and-profit-in-tapstat">See your ads and profit in tapStat</h2>
   <figure><div class="phone"><img src="../img/marketing.webp" alt="tapStat marketing screen with spend, revenue and ROAS per channel" width="480" height="1000" loading="lazy"></div><figcaption>Spend, revenue and ROAS per channel.</figcaption></figure>
   <p>Connect Google Ads to GA4 and turn on GA4's cost data import for Meta (our <a href="../guides/meta-ads-cost-in-ga4.html">guide</a> shows how). tapStat then shows spend, revenue and ROAS per channel and campaign, merges paid Facebook and Instagram into one Meta Ads channel, and in Pro adds MER, wasted ad spend and profit after product costs, fees, shipping and ads.</p>
 
-  <h2>Questions</h2>
+  <h2 id="questions">Questions</h2>
   <div class="faq">
     <details><summary>Is there a cheaper alternative to Triple Whale?</summary><p>If you already use GA4, tapStat shows revenue, ROAS, MER and profit on your phone for free on one store, or €7 a month for Pro. It doesn't do pixel-based multi-touch attribution.</p></details>
     <details><summary>Does tapStat work without Shopify?</summary><p>Yes. tapStat works with any store platform that sends ecommerce events to Google Analytics 4.</p></details>
@@ -97,15 +100,17 @@
     <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access%20(Triple%20Whale%20alternative)">Get early access</a></div>
   </div>
 </article>
+<aside class="toc"><nav aria-label="On this page"><p>On this page</p><a href="#when-triple-whale-is-the-right-choice">When Triple Whale is the right choice</a><a href="#when-tapstat-fits-better">When tapStat fits better</a><a href="#side-by-side">Side by side</a><a href="#what-you-give-up-with-ga4-data">What you give up with GA4 data</a><a href="#see-your-ads-and-profit-in-tapstat">See your ads and profit in tapStat</a><a href="#questions">Questions</a></nav></aside></div>
 </main>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
+    <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
   </div>
 </footer>

@@ -8,9 +8,10 @@
 <link rel="canonical" href="https://tapstat.app/features.html">
 <link rel="icon" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
-<link rel="preload" href="manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
-<meta name="theme-color" content="#0F5132">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="Features: GA4 ecommerce dashboard, profit, ROAS and alerts on Android · tapStat">
@@ -22,6 +23,10 @@
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSC5XK63');</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0RFVS9KZG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E0RFVS9KZG');</script>
+<script src="js/site.js" defer></script>
+<script src="js/gsap.min.js" defer></script>
+<script src="js/ScrollTrigger.min.js" defer></script>
+<script src="js/motion.js" defer></script>
 </head>
 <body class="">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -161,10 +166,10 @@
   <div class="wrap">
     <div class="section-head center"><h2>Built on trust</h2></div>
     <div class="grid g4">
-      <div class="card"><div class="icon">🔒</div><h3>Read-only</h3><p class="muted">tapStat asks for read-only Analytics access and can never change your GA4 setup.</p></div>
-      <div class="card"><div class="icon">📱</div><h3>On your phone</h3><p class="muted">Reports go straight from Google to your phone. Server features are optional.</p></div>
-      <div class="card"><div class="icon">🇪🇺</div><h3>Hosted in the EU</h3><p class="muted">The optional server runs on Google Cloud in Europe.</p></div>
-      <div class="card"><div class="icon">🧪</div><h3>Try it on a demo</h3><p class="muted">A demo store with every Pro feature unlocked works without signing in.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h3>Read-only</h3><p class="muted">tapStat asks for read-only Analytics access and can never change your GA4 setup.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div><h3>On your phone</h3><p class="muted">Reports go straight from Google to your phone. Server features are optional.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><h3>Hosted in the EU</h3><p class="muted">The optional server runs on Google Cloud in Europe.</p></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4a2 2 0 0 0 1.8-3l-5-9V3"/><path d="M7.5 15h9"/></svg></div><h3>Try it on a demo</h3><p class="muted">A demo store with every Pro feature unlocked works without signing in.</p></div>
     </div>
   </div>
 </section>
@@ -182,11 +187,12 @@
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href=""><img src="logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href=""><img src="logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><h4>Product</h4><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="teams.html">Team plan</a><a href="roadmap.html">Roadmap</a><a href="changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="why-did-my-sales-drop/">Why did my sales drop?</a><a href="google-analytics-widget/">GA4 widget for Android</a><a href="ga4-sales-alerts/">Sales alerts</a><a href="ga4-compare-to-last-year/">Compare with last year</a><a href="for-agencies/">For agencies</a><a href="triple-whale-alternative/">Triple Whale alternative</a><a href="best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="guides/">All guides</a><a href="guides/google-analytics-app-alternative.html">GA app alternative</a><a href="guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="features.html">Features</a><a href="pricing.html">Pricing</a><a href="teams.html">Team plan</a><a href="roadmap.html">Roadmap</a><a href="changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="why-did-my-sales-drop/">Why did my sales drop?</a><a href="google-analytics-widget/">GA4 widget for Android</a><a href="ga4-sales-alerts/">Sales alerts</a><a href="ga4-compare-to-last-year/">Compare with last year</a><a href="for-agencies/">For agencies</a><a href="triple-whale-alternative/">Triple Whale alternative</a><a href="best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="guides/">All guides</a><a href="guides/google-analytics-app-alternative.html">GA app alternative</a><a href="guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
+    <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
   </div>
 </footer>

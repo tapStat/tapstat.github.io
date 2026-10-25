@@ -8,9 +8,10 @@
 <link rel="canonical" href="https://tapstat.app/google-analytics-app-not-working/">
 <link rel="icon" href="../logo.png">
 <link rel="apple-touch-icon" href="../logo.png">
-<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
-<meta name="theme-color" content="#0F5132">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="Google Analytics app not showing data? Here's how to fix it">
@@ -25,6 +26,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why does my Google Analytics app say no data?", "acceptedAnswer": {"@type": "Answer", "text": "Usually because it's showing an old Universal Analytics property, the wrong GA4 property, or today's date range before GA4 has processed it. Switch to your GA4 property and pick yesterday."}}, {"@type": "Question", "name": "Why is revenue zero in the Google Analytics app?", "acceptedAnswer": {"@type": "Answer", "text": "Your store isn't sending the purchase event to GA4, or sends it without a value and currency. Check Ecommerce purchases in the GA4 website and fix the store's GA4 integration."}}, {"@type": "Question", "name": "Is the Google Analytics app still supported?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Google still publishes the Analytics app for Android and iPhone, and it works with GA4 properties."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Google Analytics app not showing data? 8 fixes", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}, "image": "https://tapstat.app/img/og.png", "mainEntityOfPage": "https://tapstat.app/google-analytics-app-not-working/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "tapStat", "item": "https://tapstat.app/"}, {"@type": "ListItem", "position": 2, "name": "Google Analytics app not working", "item": "https://tapstat.app/google-analytics-app-not-working/"}]}</script>
+<script src="../js/site.js" defer></script>
 </head>
 <body class="">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -39,43 +41,44 @@
   </div>
 </header>
 <main id="main">
-<article class="prose">
+<div class="progress" aria-hidden="true"></div>
+<div class="article-shell"><article class="prose">
   <p class="crumbs"><a href="../">tapStat</a> · Troubleshooting</p>
   <h1>Google Analytics app not showing data? 8 fixes</h1>
   <p class="meta">Updated 25 October 2026 · 6 min read</p>
 
   <p class="lead">Most of the time the Google Analytics app is fine and the problem is the property, the date range or the tracking behind it. Work through these checks in order. The first three solve most cases.</p>
 
-  <h2>1. You're looking at an old Universal Analytics property</h2>
+  <h2 id="1-you-re-looking-at-an-old-universal-analytics-property">1. You're looking at an old Universal Analytics property</h2>
   <p>Universal Analytics stopped collecting data in July 2023 (July 2024 for paid 360 properties), and Google has since deleted those properties. If your account still lists an old property, or you saved a shortcut to one, switch to the GA4 property. GA4 property IDs are plain numbers. Old ones started with <code>UA-</code>.</p>
 
-  <h2>2. The wrong property or account is selected</h2>
+  <h2 id="2-the-wrong-property-or-account-is-selected">2. The wrong property or account is selected</h2>
   <p>The app opens on the last property you used. If you have more than one Google account or property, tap the property name at the top and pick the right one. If the property isn't listed at all, your account doesn't have access. Ask the owner to add you in <strong>Admin › Property access management</strong>.</p>
 
-  <h2>3. The date range is today, and today isn't processed yet</h2>
+  <h2 id="3-the-date-range-is-today-and-today-isn-t-processed-yet">3. The date range is today, and today isn't processed yet</h2>
   <p>GA4 can take 24 to 48 hours to fully process a day. Today's numbers are partial, and some reports show nothing for today. Switch to <em>Yesterday</em> or <em>Last 7 days</em>. If those have data, nothing is broken.</p>
 
-  <h2>4. Revenue shows zero but users don't</h2>
+  <h2 id="4-revenue-shows-zero-but-users-don-t">4. Revenue shows zero but users don't</h2>
   <p>Your site sends traffic but not purchases. Check <strong>Reports › Monetization › Ecommerce purchases</strong> in the browser. If it's empty, your store isn't sending the <code>purchase</code> event, or it sends it without <code>value</code> and <code>currency</code>. Our <a href="../ga4-not-tracking-purchases/">10-minute purchase tracking check</a> walks through it.</p>
 
-  <h2>5. A comparison or filter is still on</h2>
+  <h2 id="5-a-comparison-or-filter-is-still-on">5. A comparison or filter is still on</h2>
   <p>A comparison or filter left on from an earlier session can make a report look empty. Clear them and reload.</p>
 
-  <h2>6. The app is out of date or stuck</h2>
+  <h2 id="6-the-app-is-out-of-date-or-stuck">6. The app is out of date or stuck</h2>
   <p>Update the app in Google Play. If it still shows errors, clear the app's cache under <strong>Settings › Apps › Analytics › Storage</strong>, or sign out and back in.</p>
 
-  <h2>7. "We cannot access the Google Analytics API"</h2>
+  <h2 id="7-we-cannot-access-the-google-analytics-api">7. "We cannot access the Google Analytics API"</h2>
   <p>This error usually means a short outage or a network problem. Try again on another network, or open <a href="https://analytics.google.com/">analytics.google.com</a> in your phone's browser. If the website works and the app doesn't, the problem is the app.</p>
 
-  <h2>8. Tracking stopped on your site</h2>
+  <h2 id="8-tracking-stopped-on-your-site">8. Tracking stopped on your site</h2>
   <p>Open the <strong>Realtime</strong> report and visit your own site. If you don't show up, the GA4 tag isn't loading. A theme update, a new cookie banner or a removed plugin are the usual causes. Fix the tag before anything else, because the data you miss can't be recovered.</p>
 
-  <h2>When the app works but still isn't enough</h2>
+  <h2 id="when-the-app-works-but-still-isn-t-enough">When the app works but still isn't enough</h2>
   <p>Sometimes the data is fine and the app just doesn't answer your questions. That's often the case for store owners. The Google Analytics app is built for every kind of website and app, so it shows a report library rather than today's sales, pace and the reason they changed. It also has no widget.</p>
   <figure><div class="phone"><img src="../img/alerts.webp" alt="tapStat alert settings including tracking health" width="480" height="1000" loading="lazy"></div><figcaption>tapStat warns you when purchase data stops coming in.</figcaption></figure>
   <p>tapStat reads the same GA4 data and opens on revenue. It also watches your tracking: a <strong>tracking health alert</strong> tells you the day purchases stop arriving, so problem 8 doesn't run for a week before you notice. Read more in <a href="../guides/google-analytics-app-alternative.html">the Google Analytics app alternative for stores</a>.</p>
 
-  <h2>Questions</h2>
+  <h2 id="questions">Questions</h2>
   <div class="faq">
     <details><summary>Why does my Google Analytics app say no data?</summary><p>Usually because it's showing an old Universal Analytics property, the wrong GA4 property, or today's date range before GA4 has processed it. Switch to your GA4 property and pick yesterday.</p></details>
     <details><summary>Why is revenue zero in the Google Analytics app?</summary><p>Your store isn't sending the purchase event to GA4, or sends it without a value and currency. Check Ecommerce purchases in the GA4 website and fix the store's GA4 integration.</p></details>
@@ -88,15 +91,17 @@
     <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access%20(app%20not%20working)">Get early access</a></div>
   </div>
 </article>
+<aside class="toc"><nav aria-label="On this page"><p>On this page</p><a href="#1-you-re-looking-at-an-old-universal-analytics-property">1. You're looking at an old Universal Analytics property</a><a href="#2-the-wrong-property-or-account-is-selected">2. The wrong property or account is selected</a><a href="#3-the-date-range-is-today-and-today-isn-t-processed-yet">3. The date range is today, and today isn't processed yet</a><a href="#4-revenue-shows-zero-but-users-don-t">4. Revenue shows zero but users don't</a><a href="#5-a-comparison-or-filter-is-still-on">5. A comparison or filter is still on</a><a href="#6-the-app-is-out-of-date-or-stuck">6. The app is out of date or stuck</a><a href="#7-we-cannot-access-the-google-analytics-api">7. "We cannot access the Google Analytics API"</a><a href="#8-tracking-stopped-on-your-site">8. Tracking stopped on your site</a><a href="#when-the-app-works-but-still-isn-t-enough">When the app works but still isn't enough</a><a href="#questions">Questions</a></nav></aside></div>
 </main>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
+    <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
   </div>
 </footer>

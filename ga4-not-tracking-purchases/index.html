@@ -8,9 +8,10 @@
 <link rel="canonical" href="https://tapstat.app/ga4-not-tracking-purchases/">
 <link rel="icon" href="../logo.png">
 <link rel="apple-touch-icon" href="../logo.png">
-<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
-<meta name="theme-color" content="#0F5132">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="GA4 not tracking purchases? Check these 6 things">
@@ -25,6 +26,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why is my GA4 purchase event not firing?", "acceptedAnswer": {"@type": "Answer", "text": "Usually because the tag doesn't load on the order confirmation page after a platform or theme change, because a cookie banner blocks it, or because the customer never returns from the payment provider."}}, {"@type": "Question", "name": "Why does GA4 show purchases but no revenue?", "acceptedAnswer": {"@type": "Answer", "text": "The purchase event is missing the value or currency parameter, or value is sent as text with a currency symbol. Check the event in DebugView."}}, {"@type": "Question", "name": "Can I recover purchases GA4 missed?", "acceptedAnswer": {"@type": "Answer", "text": "Not in standard reports. GA4 doesn't import missing orders after the fact. Fix the tracking quickly and note the gap."}}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "GA4 not tracking purchases? A 10-minute check", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}, "image": "https://tapstat.app/img/og.png", "mainEntityOfPage": "https://tapstat.app/ga4-not-tracking-purchases/"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "tapStat", "item": "https://tapstat.app/"}, {"@type": "ListItem", "position": 2, "name": "GA4 not tracking purchases", "item": "https://tapstat.app/ga4-not-tracking-purchases/"}]}</script>
+<script src="../js/site.js" defer></script>
 </head>
 <body class="">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -39,17 +41,18 @@
   </div>
 </header>
 <main id="main">
-<article class="prose">
+<div class="progress" aria-hidden="true"></div>
+<div class="article-shell"><article class="prose">
   <p class="crumbs"><a href="../">tapStat</a> · Tracking</p>
   <h1>GA4 not tracking purchases? A 10-minute check</h1>
   <p class="meta">Updated 25 October 2026 · 6 min read</p>
 
   <p class="lead">If GA4 shows visitors but no purchases, or revenue fell to zero overnight, the <code>purchase</code> event isn't arriving or is arriving without its value. Place one test order and follow it through these six checks.</p>
 
-  <h2>1. Place a test order and watch Realtime</h2>
+  <h2 id="1-place-a-test-order-and-watch-realtime">1. Place a test order and watch Realtime</h2>
   <p>Open <strong>Reports › Realtime</strong> in GA4 and place a real order on your site (refund it afterwards). Within a minute or two, <code>purchase</code> should appear under event count. If it doesn't, the event never fired. Go to check 3.</p>
 
-  <h2>2. Check the parameters in DebugView</h2>
+  <h2 id="2-check-the-parameters-in-debugview">2. Check the parameters in DebugView</h2>
   <p>Turn on debug mode with Google's Tag Assistant and repeat the order. In DebugView (<strong>Admin › Data display › DebugView</strong>), open the <code>purchase</code> event. It needs:</p>
   <ul>
     <li><code>transaction_id</code>, unique per order</li>
@@ -59,7 +62,7 @@
   </ul>
   <p>Without <code>value</code> and <code>currency</code>, GA4 counts the purchase but shows no revenue.</p>
 
-  <h2>3. Check that the thank-you page runs your tag</h2>
+  <h2 id="3-check-that-the-thank-you-page-runs-your-tag">3. Check that the thank-you page runs your tag</h2>
   <p>Most platforms fire <code>purchase</code> on the order confirmation page. If that page changed, the tag may not load there:</p>
   <ul>
     <li><strong>Shopify:</strong> the old checkout scripts on the thank-you page no longer run. Purchases must come through the Google &amp; YouTube app or a custom pixel.</li>
@@ -67,21 +70,21 @@
     <li><strong>Custom stores and Tag Manager:</strong> check that the trigger still matches the confirmation page URL or the data layer event.</li>
   </ul>
 
-  <h2>4. Check payment redirects</h2>
+  <h2 id="4-check-payment-redirects">4. Check payment redirects</h2>
   <p>Customers who pay through PayPal, iDEAL, Klarna, Mollie or a bank app leave your site and may come back on a new session, or not at all. Add the payment providers to <strong>Admin › Data streams › Configure tag settings › List unwanted referrals</strong> so the returning visit keeps its original source. Purchases from people who never come back can only be recovered with server-side tracking.</p>
 
-  <h2>5. Check consent</h2>
+  <h2 id="5-check-consent">5. Check consent</h2>
   <p>A new or changed cookie banner can block GA4 until the visitor accepts. If purchases dropped the day the banner changed, check that the banner updates Consent Mode correctly and that the GA4 tag waits for it instead of never loading.</p>
 
-  <h2>6. Check for duplicates</h2>
+  <h2 id="6-check-for-duplicates">6. Check for duplicates</h2>
   <p>Two integrations (a platform app and a Tag Manager tag) send every order twice. In <strong>Explore</strong>, build a free-form table with <em>Transaction ID</em> and <em>Purchases</em>. Any ID with more than one purchase is a duplicate.</p>
 
-  <h2>Catch it the same day next time</h2>
+  <h2 id="catch-it-the-same-day-next-time">Catch it the same day next time</h2>
   <figure><div class="phone"><img src="../img/alerts.webp" alt="tapStat alert settings with tracking health alerts" width="480" height="1000" loading="lazy"></div><figcaption>Tracking health alerts in tapStat.</figcaption></figure>
   <p>Broken purchase tracking often goes unnoticed for a week, because everyone looks at the store's back office and assumes GA4 is fine. tapStat's free <strong>tracking health alerts</strong> notify you when purchase data stops coming in, so you lose a day of data instead of a week.</p>
   <p>Related: <a href="../ga4-revenue-not-matching-shopify/">why GA4 revenue doesn't match Shopify</a> and <a href="../google-analytics-app-not-working/">Google Analytics app showing no data</a>.</p>
 
-  <h2>Questions</h2>
+  <h2 id="questions">Questions</h2>
   <div class="faq">
     <details><summary>Why is my GA4 purchase event not firing?</summary><p>Usually because the tag doesn't load on the order confirmation page after a platform or theme change, because a cookie banner blocks it, or because the customer never returns from the payment provider.</p></details>
     <details><summary>Why does GA4 show purchases but no revenue?</summary><p>The purchase event is missing the value or currency parameter, or value is sent as text with a currency symbol. Check the event in DebugView.</p></details>
@@ -94,15 +97,17 @@
     <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access%20(purchase%20tracking)">Get early access</a></div>
   </div>
 </article>
+<aside class="toc"><nav aria-label="On this page"><p>On this page</p><a href="#1-place-a-test-order-and-watch-realtime">1. Place a test order and watch Realtime</a><a href="#2-check-the-parameters-in-debugview">2. Check the parameters in DebugView</a><a href="#3-check-that-the-thank-you-page-runs-your-tag">3. Check that the thank-you page runs your tag</a><a href="#4-check-payment-redirects">4. Check payment redirects</a><a href="#5-check-consent">5. Check consent</a><a href="#6-check-for-duplicates">6. Check for duplicates</a><a href="#catch-it-the-same-day-next-time">Catch it the same day next time</a><a href="#questions">Questions</a></nav></aside></div>
 </main>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
+    <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
   </div>
 </footer>

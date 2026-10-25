@@ -8,9 +8,10 @@
 <link rel="canonical" href="https://tapstat.app/guides/ga4-conversion-rate-drop.html">
 <link rel="icon" href="../logo.png">
 <link rel="apple-touch-icon" href="../logo.png">
-<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="../manrope.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../style.css">
-<meta name="theme-color" content="#0F5132">
+<meta name="theme-color" content="#F3F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="Why your GA4 conversion rate drops for the last two days · tapStat">
@@ -23,6 +24,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0RFVS9KZG"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E0RFVS9KZG');</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Why your GA4 conversion rate drops for the last two days", "datePublished": "2026-10-25", "dateModified": "2026-10-25", "author": {"@type": "Organization", "name": "tapStat"}, "publisher": {"@type": "Organization", "name": "tapStat", "logo": {"@type": "ImageObject", "url": "https://tapstat.app/logo.png"}}}</script>
+<script src="../js/site.js" defer></script>
 </head>
 <body class="">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -37,14 +39,15 @@
   </div>
 </header>
 <main id="main">
-<article class="prose">
+<div class="progress" aria-hidden="true"></div>
+<div class="article-shell"><article class="prose">
   <p class="crumbs"><a href="./">Guides</a></p>
   <h1>Why your GA4 conversion rate drops for the last two days</h1>
   <p class="meta">Updated 25 October 2026 · 6 min read</p>
 
   <p class="lead">Orders were fine yesterday. Revenue was fine. But GA4 says your conversion rate fell by a third. Before you start debugging your checkout, check whether the day has settled.</p>
 
-  <h2>The pattern</h2>
+  <h2 id="the-pattern">The pattern</h2>
   <p>You open GA4 in the morning and see:</p>
   <ul>
     <li>Yesterday: normal orders and revenue, but sessions far higher than usual and conversion rate far lower.</li>
@@ -53,11 +56,11 @@
   </ul>
   <p>Look again in two days and yesterday's conversion rate has quietly come back up. Nothing was wrong with your store.</p>
 
-  <h2>Why it happens</h2>
+  <h2 id="why-it-happens">Why it happens</h2>
   <p>GA4 doesn't finish processing a day when the day ends. Google says data can take 24 to 48 hours to process, and the newest days keep changing in that window. For session-based numbers, one effect matters most: until GA4 has attributed late-arriving traffic sources, some sessions can be counted more than once. Sessions go up, orders don't, so <strong>conversion rate = orders ÷ sessions</strong> goes down.</p>
   <p>Revenue, orders and average order value are counted from purchase events, so they are much more stable for yesterday. It's the session-based rates that wobble: conversion rate, revenue per session, bounce and engagement rates.</p>
 
-  <h2>How to tell a real drop from a delay</h2>
+  <h2 id="how-to-tell-a-real-drop-from-a-delay">How to tell a real drop from a delay</h2>
   <ol class="steps">
     <li><strong>Check orders first.</strong> If orders and revenue are normal for that weekday, a conversion drop is almost certainly sessions still settling.</li>
     <li><strong>Compare a settled day.</strong> Look at three days ago against the same weekday in earlier weeks. If that day is normal, wait before you act.</li>
@@ -65,12 +68,12 @@
     <li><strong>Split by device.</strong> A real checkout problem usually shows up on one device or browser, with orders down too.</li>
   </ol>
 
-  <h2>Set alerts that don't cry wolf</h2>
+  <h2 id="set-alerts-that-don-t-cry-wolf">Set alerts that don't cry wolf</h2>
   <p>Most alerting tools compare yesterday with the day before, so this delay fires a false conversion alarm almost every morning. You learn to ignore them, and then you miss the real one.</p>
   <p>tapStat handles this for you. Revenue, orders, order value and refund alerts check yesterday, because those settle fast. <strong>Conversion-rate alerts check the newest settled day</strong>, three days ago, against the median of the same weekday over the previous weeks. The app says so up front, so a conversion alert about a few days ago isn't a surprise.</p>
   <figure><div class="phone"><img src="../img/alerts.webp" alt="tapStat alert rules" width="480" height="1000" loading="lazy"></div><figcaption>Alerts in tapStat compare with the same weekday over the last four weeks.</figcaption></figure>
 
-  <h2>The short version</h2>
+  <h2 id="the-short-version">The short version</h2>
   <div class="note">If yesterday's conversion rate looks bad but orders look fine, give GA4 two days. Judge conversion rate on settled days, and judge yesterday on orders and revenue.</div>
 
   <div class="cta" style="margin-top:40px">
@@ -79,15 +82,17 @@
     <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></div>
   </div>
 </article>
+<aside class="toc"><nav aria-label="On this page"><p>On this page</p><a href="#the-pattern">The pattern</a><a href="#why-it-happens">Why it happens</a><a href="#how-to-tell-a-real-drop-from-a-delay">How to tell a real drop from a delay</a><a href="#set-alerts-that-don-t-cry-wolf">Set alerts that don't cry wolf</a><a href="#the-short-version">The short version</a></nav></aside></div>
 </main>
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Solutions</h4><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
+    <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
   </div>
 </footer>
