@@ -159,7 +159,7 @@ td.p { color: var(--down); }
 .plan li::before { content: "✓"; position: absolute; left: 0; font-weight: 800; color: var(--brand-2); }
 .plan.hero-card li::before { color: #9FF0C6; }
 .plan .btn { width: 100%; }
-.plan.hero-card .btn { background: #fff; color: var(--deep); }
+.plan.hero-card .btn, :root:not([data-theme="light"]) .plan.hero-card .btn { background: #fff; color: var(--deep); }
 .badge { position: absolute; top: -13px; right: 22px; background: #9FF0C6; color: var(--deep); font-size: 13px; font-weight: 800; padding: 4px 12px; border-radius: 99px; }
 [data-period="yearly"] .m, [data-period="monthly"] .y { display: none; }
 
@@ -205,8 +205,8 @@ td.p { color: var(--down); }
 .cta { background: linear-gradient(150deg, #1F8A5B, #0B3D2A 75%); color: #fff; border-radius: 32px; padding: clamp(36px, 6vw, 64px); text-align: center; }
 .cta h2 { color: #fff; }
 .cta p { color: rgb(255 255 255 / .82); max-width: 36em; margin-left: auto; margin-right: auto; }
-.cta .btn { background: #fff; color: var(--deep); }
-.cta .btn-ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / .4); }
+.cta .btn, :root:not([data-theme="light"]) .cta .btn { background: #fff; color: var(--deep); }
+.cta .btn-ghost, :root:not([data-theme="light"]) .cta .btn-ghost { background: transparent; color: #fff; box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / .4); }
 
 /* Notes and prose */
 .note { background: var(--mint); color: var(--mint-ink); border-radius: 18px; padding: 18px 22px; }
