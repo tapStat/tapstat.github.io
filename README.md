@@ -1,4 +1,4 @@
-# Tapstat website
+# tapStat website
 
-Home page, privacy policy and terms for the Tapstat Android app, served at https://tapstat.github.io/.
+The official tapStat website, served at https://tapstat.github.io/.
 Source of truth: `site/` in the app repo.

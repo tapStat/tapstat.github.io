@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to check your GA4 ecommerce revenue on your phone · tapStat</title>
+<meta name="description" content="Three ways to see today's sales from Google Analytics 4 on your phone: the GA4 app, a saved mobile report, or a store-focused app with widgets and today's pace.">
+<link rel="canonical" href="https://tapstat.github.io/guides/ga4-revenue-on-your-phone.html">
+<link rel="icon" href="../logo.png">
+<link rel="apple-touch-icon" href="../logo.png">
+<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#0F5132">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tapStat">
+<meta property="og:title" content="How to check your GA4 ecommerce revenue on your phone · tapStat">
+<meta property="og:description" content="Three ways to see today's sales from Google Analytics 4 on your phone: the GA4 app, a saved mobile report, or a store-focused app with widgets and today's pace.">
+<meta property="og:url" content="https://tapstat.github.io/guides/ga4-revenue-on-your-phone.html">
+<meta property="og:image" content="https://tapstat.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="YkdE_ewxdPoCmlzKN3Q8Ksq0IS82m9GagVURQ94Gfw0">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSC5XK63');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E0RFVS9KZG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E0RFVS9KZG');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to check your GA4 ecommerce revenue on your phone", "step": [{"@type": "HowToStep", "name": "Make sure GA4 records purchases", "text": "Check that the purchase event with value and currency arrives in GA4 under Reports, Monetization, Ecommerce purchases."}, {"@type": "HowToStep", "name": "Pick a way to view it", "text": "Use the Google Analytics app, a saved report, or a store-focused app such as tapStat."}, {"@type": "HowToStep", "name": "Compare with the same weekday", "text": "Compare today with the same weekday last week up to the same hour, not with yesterday."}]}</script>
+</head>
+<body class="">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="../"><img src="../logo.png" alt="" width="36" height="36"><span>tapStat</span></a>
+    <nav class="nav" aria-label="Main"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/" aria-current="page">Guides</a></nav>
+    <a class="btn btn-sm" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a>
+    <details class="menu"><summary aria-label="Menu"><span></span><span></span><span></span></summary>
+      <nav aria-label="Mobile"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/" aria-current="page">Guides</a><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></nav></details>
+  </div>
+</header>
+<main id="main">
+<article class="prose">
+  <p class="crumbs"><a href="./">Guides</a></p>
+  <h1>How to check your GA4 ecommerce revenue on your phone</h1>
+  <p class="meta">Updated 25 October 2026 · 5 min read</p>
+
+  <p class="lead">You want one number before your first coffee: how much did we sell? Here are three ways to get it from Google Analytics 4, from free and fiddly to one glance.</p>
+
+  <h2>First: make sure GA4 knows about your sales</h2>
+  <p>Every option below reads the <code>purchase</code> event. Shopify, WooCommerce and most store platforms send it once you connect GA4, but check before you trust any number:</p>
+  <ol class="steps">
+    <li>In GA4, open <strong>Reports › Monetization › Ecommerce purchases</strong>.</li>
+    <li>Pick yesterday. You should see items and revenue that roughly match your store's own order list.</li>
+    <li>If revenue is empty, your purchase event is missing its <code>value</code> and <code>currency</code> parameters. Fix that in your store's GA4 integration first.</li>
+  </ol>
+  <p>GA4 revenue will rarely match your store to the cent. Ad blockers, cookie banners and refunds all cause small gaps. Use GA4 for trends and sources, and your store back office for bookkeeping.</p>
+
+  <h2>Option 1: the Google Analytics app</h2>
+  <p>Install Google's Analytics app, pick your property and open the home screen. Revenue is usually among the summary cards, and you can open the ecommerce reports from the report library. It's free and always available. The catch: comparisons default to the previous period, today's partial day is hard to judge, and there is no widget.</p>
+
+  <h2>Option 2: a saved report in the browser</h2>
+  <p>On your phone's browser, open GA4, build a report with <em>Date</em>, <em>Purchase revenue</em> and <em>Transactions</em>, and add it to your home screen as a bookmark. It works, but GA4's website isn't built for small screens, and you'll be pinching and zooming.</p>
+
+  <h2>Option 3: a store-focused app</h2>
+  <figure><div class="phone"><img src="../img/dashboard.webp" alt="tapStat showing revenue today and today's pace" width="480" height="1000" loading="lazy"></div><figcaption>tapStat opens on revenue and today's pace.</figcaption></figure>
+  <p>An app like <a href="../features.html">tapStat</a> signs in with Google, asks for read-only Analytics access and opens on your revenue. The difference is in the details:</p>
+  <ul>
+    <li><strong>Today's pace.</strong> Sales so far compared with the same weekday last week up to the same hour, plus a projection for the day.</li>
+    <li><strong>A widget.</strong> Today's revenue on your home screen, lock screen or watch, without opening anything.</li>
+    <li><strong>Alerts.</strong> A notification when sales fall well below a normal day for that weekday.</li>
+  </ul>
+
+  <h2>Read the number the right way</h2>
+  <p>Whatever tool you use, compare like with like. Mondays and Saturdays sell differently, so compare with the <strong>same weekday last week</strong>. Early in the day, compare <strong>up to the same hour</strong>. And around holidays, compare with the <strong>same weekday last year</strong>, so Black Friday is measured against last Black Friday.</p>
+
+  <div class="cta" style="margin-top:40px">
+    <h2>One glance, every morning</h2>
+    <p>tapStat is free for one store.</p>
+    <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></div>
+  </div>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+        <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
+        <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
+      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+    </div>
+    <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to see Meta Ads spend and ROAS in GA4 · tapStat</title>
+<meta name="description" content="Import Facebook and Instagram ad costs into Google Analytics 4 with the native cost data import, tag your ads so the spend matches the sessions, and see ROAS next to revenue.">
+<link rel="canonical" href="https://tapstat.github.io/guides/meta-ads-cost-in-ga4.html">
+<link rel="icon" href="../logo.png">
+<link rel="apple-touch-icon" href="../logo.png">
+<link rel="preload" href="../manrope.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#0F5132">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tapStat">
+<meta property="og:title" content="How to see Meta Ads spend and ROAS in GA4 · tapStat">
+<meta property="og:description" content="Import Facebook and Instagram ad costs into Google Analytics 4 with the native cost data import, tag your ads so the spend matches the sessions, and see ROAS next to revenue.">
+<meta property="og:url" content="https://tapstat.github.io/guides/meta-ads-cost-in-ga4.html">
+<meta property="og:image" content="https://tapstat.github.io/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="google-site-verification" content="YkdE_ewxdPoCmlzKN3Q8Ksq0IS82m9GagVURQ94Gfw0">
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSC5XK63');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E0RFVS9KZG"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-E0RFVS9KZG');</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to see Meta Ads spend and ROAS in GA4", "step": [{"@type": "HowToStep", "name": "Create a cost data source", "text": "In GA4 Admin, open Data import, create a data source of type Cost data and choose Meta."}, {"@type": "HowToStep", "name": "Tag your ads", "text": "Add utm_source, utm_medium and utm_campaign to every Meta ad, with utm_campaign matching the campaign name."}, {"@type": "HowToStep", "name": "Check the result", "text": "After a day, compare spend and revenue per campaign in GA4 or in a store app such as tapStat."}]}</script>
+</head>
+<body class="">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSC5XK63" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="../"><img src="../logo.png" alt="" width="36" height="36"><span>tapStat</span></a>
+    <nav class="nav" aria-label="Main"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/" aria-current="page">Guides</a></nav>
+    <a class="btn btn-sm" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a>
+    <details class="menu"><summary aria-label="Menu"><span></span><span></span><span></span></summary>
+      <nav aria-label="Mobile"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/" aria-current="page">Guides</a><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></nav></details>
+  </div>
+</header>
+<main id="main">
+<article class="prose">
+  <p class="crumbs"><a href="./">Guides</a></p>
+  <h1>How to see Meta Ads spend and ROAS in GA4</h1>
+  <p class="meta">Updated 25 October 2026 · 6 min read</p>
+
+  <p class="lead">Google Ads spend shows up in GA4 as soon as you link the accounts. Facebook and Instagram spend doesn't, so return on ad spend for your biggest channel sits in another dashboard. GA4's cost data import fixes that.</p>
+
+  <h2>What you need</h2>
+  <ul>
+    <li>Editor access (or higher) to the GA4 property.</li>
+    <li>Admin access to the Meta ad account.</li>
+    <li>Ads tagged with UTM parameters. This is the part most stores get wrong.</li>
+  </ul>
+
+  <h2>Step 1: import the costs</h2>
+  <ol class="steps">
+    <li>In GA4, open <strong>Admin › Data collection and modification › Data import</strong>.</li>
+    <li>Choose <strong>Create data source</strong>, pick <strong>Cost data</strong>, then <strong>Meta</strong> as the source.</li>
+    <li>Sign in with Facebook and select the ad account. GA4 pulls spend, clicks and impressions daily.</li>
+  </ol>
+  <p>The same import works for TikTok, Pinterest, Snapchat and Reddit, if you advertise there.</p>
+
+  <h2>Step 2: tag every ad so spend meets revenue</h2>
+  <p>GA4 joins the imported cost to sessions by source, medium and campaign. If the tags on your ads don't match, the spend lands on one row and the revenue on another, and ROAS looks like zero on one and infinite on the other. In Meta Ads Manager, add this to each ad's URL parameters:</p>
+  <p><code>utm_source=facebook&amp;utm_medium=paid_social&amp;utm_campaign={{campaign.name}}</code></p>
+  <ul>
+    <li><strong>utm_campaign must equal the Meta campaign name.</strong> Meta's <code>{{campaign.name}}</code> placeholder does that for you.</li>
+    <li>Use the same source and medium on every ad. Instagram placements can keep <code>utm_source=facebook</code>, or use <code>instagram</code>; just be consistent.</li>
+    <li>Don't rename campaigns halfway through a month, or the cost and sessions split again.</li>
+  </ul>
+
+  <h2>Step 3: check the result</h2>
+  <p>Give it a day. In GA4, explore <em>Session campaign</em> with <em>Ads cost</em> and <em>Purchase revenue</em>. Spend and revenue should now sit on the same campaign rows.</p>
+  <p>Seeing spend on a row called <em>Meta Ads</em> with no revenue, while paid Facebook and Instagram rows have revenue but no spend? That is the tag mismatch from step 2. tapStat works around it by combining paid Facebook, Instagram and Meta traffic into one Meta Ads channel, so your channel ROAS is right even before your tags are. Per-campaign ROAS still needs matching campaign names.</p>
+  <figure><div class="phone"><img src="../img/marketing.webp" alt="tapStat paid channels with Google Ads and Meta ROAS" width="480" height="1000" loading="lazy"></div><figcaption>Google Ads and Meta Ads ROAS side by side in tapStat.</figcaption></figure>
+
+  <h2>Read ROAS with care</h2>
+  <ul>
+    <li><strong>GA4 and Meta count differently.</strong> GA4 credits sessions by its own attribution; Meta also counts view-through conversions. Expect Meta's own ROAS to be higher.</li>
+    <li><strong>Look at blended numbers too.</strong> MER, total revenue divided by total ad spend, doesn't depend on attribution at all.</li>
+    <li><strong>ROAS isn't profit.</strong> A 2.5× ROAS on a product with a 40% margin loses money. Break-even ROAS is 1 ÷ margin.</li>
+  </ul>
+
+  <div class="cta" style="margin-top:40px">
+    <h2>ROAS, MER and profit on your phone</h2>
+    <p>tapStat reads the spend you import into GA4 and puts it next to revenue.</p>
+    <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></div>
+  </div>
+</article>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32"><span>tapStat</span></a>
+        <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
+        <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
+      <div><h4>Product</h4><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><h4>Learn</h4><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><h4>Company</h4><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+    </div>
+    <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
+  </div>
+</footer>
+</body>
+</html>
