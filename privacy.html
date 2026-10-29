@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy policy · tapStat</title>
-<meta name="description" content="How tapStat accesses, uses, stores and deletes your Google Analytics data, including our Limited Use disclosure.">
+<meta name="description" content="How tapStat accesses, uses, protects, stores and deletes your Google Analytics data, including our data protection measures and Limited Use disclosure.">
 <link rel="canonical" href="https://tapstat.app/privacy.html">
 <link rel="icon" href="logo.png">
 <link rel="apple-touch-icon" href="logo.png">
@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
 <meta property="og:title" content="Privacy policy · tapStat">
-<meta property="og:description" content="How tapStat accesses, uses, stores and deletes your Google Analytics data, including our Limited Use disclosure.">
+<meta property="og:description" content="How tapStat accesses, uses, protects, stores and deletes your Google Analytics data, including our data protection measures and Limited Use disclosure.">
 <meta property="og:url" content="https://tapstat.app/privacy.html">
 <meta property="og:image" content="https://tapstat.app/img/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -39,7 +39,7 @@
 </header>
 <main id="main">
 <div class="prose">
-<h1>Privacy policy</h1><p class="lead">Last updated: 25 October 2026</p>
+<h1>Privacy policy</h1><p class="lead">Last updated: 29 October 2026</p>
 <p>This policy explains what data the tapStat Android app (package <code>app.betterga</code>), its Wear OS tile and its optional server ("tapStat", "we") access, how it is used, and how you can remove it.</p>
 <h2>Data we access</h2><ul>
 <li><strong>Your Google account email address</strong>, to show which account is signed in and, if you connect the optional server, to identify your account and send email digests.</li>
@@ -55,13 +55,23 @@
 <p>Specifically: we use Google user data only to provide and improve the features described above that you can see in the app. We do not sell it, do not use it for advertising, do not use it to train general AI models, and do not transfer it to anyone except the service providers named above as needed to run those features, as required by law, or as part of a merger or acquisition with notice to you. No person at tapStat reads your data unless you ask us to for support, it is needed for security or to comply with the law.</p>
 <h2>Sharing</h2>
 <p>We share data only with the service providers needed to run the features you use: Google (Cloud hosting, Firestore, Firebase Cloud Messaging), Resend (email digests) and Anthropic (assistant answers). We do not sell personal data.</p>
-<h2>Retention and deletion</h2><ul>
+<h2 id="retention">Retention and deletion</h2><ul>
 <li>Data cached on your phone is deleted when you sign out or uninstall the app.</li>
 <li>Server data is kept while your account is connected. <em>Settings › Disconnect</em> in the app revokes our Google token and deletes your server record immediately.</li>
 <li>You can also remove tapStat's access at any time at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
 <li>To ask us to delete your data, email us at the address below. We reply within 30 days.</li></ul>
-<h2>Security</h2>
-<p>All traffic uses HTTPS. Server data is encrypted at rest by Google Cloud, and our database denies all direct client access. Refresh tokens are only readable by our server code.</p>
+<h2 id="data-protection">How we protect your data</h2>
+<p>Your Google Analytics data and Google account tokens are sensitive, so we protect them with the following measures.</p>
+<ul>
+<li><strong>Encryption in transit.</strong> Every connection between the app, Google's APIs, our server and our service providers uses HTTPS with TLS 1.2 or higher. The app does not allow unencrypted (plain HTTP) connections.</li>
+<li><strong>Encryption at rest.</strong> Server data is stored in Google Cloud Firestore in the EU, where Google encrypts all data at rest with AES-256. On your phone, cached reports and settings live in the app's private storage, which Android isolates from other apps and encrypts with the device's file-based encryption. Other secrets the app keeps, such as an optional Meta Ads token, are additionally sealed with an AES key held in the Android Keystore, which never leaves the device's secure hardware.</li>
+<li><strong>Google sign-in and tokens.</strong> You sign in only through Google's own consent screen; tapStat never sees or stores your Google password. On the phone, short-lived Google access tokens are provided by Google Play services and kept only in memory, never written to storage. If you connect the optional server, the Google refresh token is stored only in our server database, is limited to read-only Analytics access, is never sent back to the app or to any third party, and is never written to logs.</li>
+<li><strong>Access controls.</strong> Our database denies all direct access from apps and the internet; only our own server code, running under a dedicated Google Cloud service account, can read it. Each app connection to our server uses a random 256-bit session key, and the server stores only a SHA-256 hash of it. Administrative access to our Google Cloud project is limited to tapStat's developer, using a Google account protected by 2-step verification, and secrets such as API keys are kept in Google Secret Manager, not in code.</li>
+<li><strong>Least privilege.</strong> We request only the read-only Analytics scope (plus your email address when you connect the optional server). tapStat cannot change, delete or add anything in your Google Analytics account.</li>
+<li><strong>Minimization and retention.</strong> The app fetches only the reports it shows you. Server data is deleted immediately when you disconnect, and on-device data when you sign out or uninstall, as described under <a href="#retention">Retention and deletion</a>.</li>
+<li><strong>Service providers.</strong> The providers listed under <em>Sharing</em> process data only on our instructions, under their data processing terms, and with encryption in transit and at rest.</li>
+<li><strong>Incidents.</strong> If a security incident affects your data, we will notify you and the competent authorities without undue delay, as required by law (for example within 72 hours under the GDPR).</li>
+</ul>
 <h2>This website</h2><p>This website (tapstat.app) has no accounts and no login; everything happens in the app. To understand how visitors find and use the site, it uses Google Analytics and Google Tag Manager, which set cookies and collect usage data such as pages viewed, device type, approximate location and the website that sent you; see <a href="https://policies.google.com/technologies/partner-sites">how Google uses this data</a>. Website data is never combined with the Analytics data you view in the app. The site is hosted on GitHub Pages, which may log your IP address for security, as described in <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>. Roadmap votes and ideas are collected on our public board at Featurebase (tapstat.featurebase.app), which has its own privacy policy. If you email us, for example to ask for early access, we use your email address only to reply and to tell you about tapStat, and we delete it on request.</p>
 <h2>Children</h2><p>tapStat is a business tool and is not directed at children under 16.</p>
 <h2>Your rights</h2><p>Depending on where you live (for example under the GDPR), you can ask to access, correct, export or delete your data, or object to its processing. Email us and we will help. You can also complain to your local data protection authority.</p>
