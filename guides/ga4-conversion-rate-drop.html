@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Why your GA4 conversion rate drops for the last two days · tapStat</title>
-<meta name="description" content="GA4 keeps revising recent sessions while late traffic sources are attributed, for up to 48 hours. That makes yesterday's conversion rate look too low. Here is how to tell a real drop from a reporting delay.">
+<title>Why GA4 conversion rate drops for 2 days · tapStat</title>
+<meta name="description" content="GA4 keeps attributing late traffic sources for up to 48 hours, so yesterday&#x27;s conversion rate looks too low. How to tell a real drop from a reporting delay.">
 <link rel="canonical" href="https://tapstat.app/guides/ga4-conversion-rate-drop.html">
 <link rel="icon" href="../logo.png">
 <link rel="apple-touch-icon" href="../logo.png">
@@ -14,10 +14,13 @@
 <meta name="theme-color" content="#070C0A" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="tapStat">
-<meta property="og:title" content="Why your GA4 conversion rate drops for the last two days · tapStat">
-<meta property="og:description" content="GA4 keeps revising recent sessions while late traffic sources are attributed, for up to 48 hours. That makes yesterday's conversion rate look too low. Here is how to tell a real drop from a reporting delay.">
+<meta property="og:title" content="Why your GA4 conversion rate drops for the last two days">
+<meta property="og:description" content="GA4 keeps attributing late traffic sources for up to 48 hours, so yesterday&#x27;s conversion rate looks too low. How to tell a real drop from a reporting delay.">
 <meta property="og:url" content="https://tapstat.app/guides/ga4-conversion-rate-drop.html">
-<meta property="og:image" content="https://tapstat.app/img/og.png">
+<meta property="og:image" content="https://tapstat.app/img/og/guides-ga4-conversion-rate-drop.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Why your GA4 conversion rate drops for the last two days">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="google-site-verification" content="YkdE_ewxdPoCmlzKN3Q8Ksq0IS82m9GagVURQ94Gfw0">
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TSC5XK63');</script>
@@ -31,11 +34,11 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
   <div class="wrap top-in">
-    <a class="brand" href="../"><img src="../logo.png" alt="" width="36" height="36"><span>tapStat</span></a>
+    <a class="brand" href="../" aria-label="tapStat home"><img src="../logo.png" alt="" width="36" height="36"><span>tapStat</span></a>
     <nav class="nav" aria-label="Main"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/" aria-current="page">Guides</a></nav>
-    <a class="btn btn-sm" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a>
+    <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=app.betterga">Get the app</a>
     <details class="menu"><summary aria-label="Menu"><span></span><span></span><span></span></summary>
-      <nav aria-label="Mobile"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/" aria-current="page">Guides</a><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></nav></details>
+      <nav aria-label="Mobile"><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Teams</a><a href="../roadmap.html">Roadmap</a><a href="../guides/" aria-current="page">Guides</a><a class="btn" href="https://play.google.com/store/apps/details?id=app.betterga">Get it on Google Play</a></nav></details>
   </div>
 </header>
 <main id="main">
@@ -79,7 +82,7 @@
   <div class="cta" style="margin-top:40px">
     <h2>Alerts you can trust</h2>
     <p>tapStat's alerts know your normal week and wait for GA4 to settle.</p>
-    <div class="actions" style="justify-content:center"><a class="btn" href="mailto:eliasraiss@hotmail.com?subject=tapStat%20early%20access">Get early access</a></div>
+    <div class="actions" style="justify-content:center"><a class="btn" href="https://play.google.com/store/apps/details?id=app.betterga">Get it on Google Play</a></div>
   </div>
 </article>
 <aside class="toc"><nav aria-label="On this page"><p>On this page</p><a href="#the-pattern">The pattern</a><a href="#why-it-happens">Why it happens</a><a href="#how-to-tell-a-real-drop-from-a-delay">How to tell a real drop from a delay</a><a href="#set-alerts-that-don-t-cry-wolf">Set alerts that don't cry wolf</a><a href="#the-short-version">The short version</a></nav></aside></div>
@@ -87,10 +90,10 @@
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
-      <div class="foot-brand"><a class="brand" href="../"><img src="../logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
+      <div class="foot-brand"><a class="brand" href="../" aria-label="tapStat home"><img src="../logo.png" alt="" width="32" height="32" loading="lazy"><span>tapStat</span></a>
         <p>The Google Analytics 4 app for online stores. Built in public in the Netherlands.</p>
         <p><a href="mailto:eliasraiss@hotmail.com">eliasraiss@hotmail.com</a></p></div>
-      <div><p class="foot-h">Product</p><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Learn</p><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
+      <div><p class="foot-h">Product</p><a href="../features.html">Features</a><a href="../pricing.html">Pricing</a><a href="../teams.html">Team plan</a><a href="../roadmap.html">Roadmap</a><a href="../changelog.html">Changelog</a></div><div><p class="foot-h">Solutions</p><a href="../black-friday-live-dashboard/">Black Friday dashboard</a><a href="../why-did-my-sales-drop/">Why did my sales drop?</a><a href="../google-analytics-widget/">GA4 widget for Android</a><a href="../ga4-sales-alerts/">Sales alerts</a><a href="../ga4-compare-to-last-year/">Compare with last year</a><a href="../for-agencies/">For agencies</a><a href="../triple-whale-alternative/">Triple Whale alternative</a><a href="../best-google-analytics-apps/">Best GA apps in 2026</a></div><div><p class="foot-h">Fix GA4</p><a href="../ga4-not-tracking-purchases/">GA4 not tracking purchases</a><a href="../ga4-revenue-not-matching-shopify/">GA4 vs Shopify revenue</a><a href="../google-analytics-app-not-working/">GA app not working</a><a href="../guides/ga4-conversion-rate-drop.html">Why GA4 conversion dips</a></div><div><p class="foot-h">Learn</p><a href="../guides/">All guides</a><a href="../guides/google-analytics-app-alternative.html">GA app alternative</a><a href="../guides/ga4-revenue-on-your-phone.html">GA4 revenue on your phone</a><a href="../guides/meta-ads-cost-in-ga4.html">Meta Ads cost in GA4</a></div><div><p class="foot-h">Company</p><a href="../privacy.html">Privacy policy</a><a href="../terms.html">Terms of service</a><a href="mailto:eliasraiss@hotmail.com">Contact</a></div>
     </div>
     <p class="foot-word" aria-hidden="true">tap<span>Stat</span></p>
     <p class="fine">tapStat is an independent app. It is not made, endorsed or sponsored by Google. Google Analytics, Google Ads and Google Play are trademarks of Google LLC; Meta is a trademark of Meta Platforms, Inc. &copy; 2026 tapStat.</p>
